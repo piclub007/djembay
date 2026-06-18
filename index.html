@@ -3,7 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Djembay - African Music Streaming</title>
+    <title>Djembay - The Future of African Music Streaming</title>
+    <meta name="description" content="Djembay is a premium African-inspired music streaming platform. Discover Afrobeats, Amapiano, Afro-fusion, and global African diaspora sounds. Join the waitlist today.">
+    <meta name="keywords" content="African music, music streaming, Afrobeats, Amapiano, Afro-fusion, African artists, music platform, Djembay, African diaspora, music discovery">
+    <meta name="author" content="PIReactive">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="theme-color" content="#7c3aed">
+    
+    <meta property="og:title" content="Djembay - The Future of African Music Streaming">
+    <meta property="og:description" content="Premium African-inspired music streaming platform. Discover the rhythms of Africa and join the cultural movement.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://djembay.com">
+    <meta property="og:image" content="https://djembay.com/Assets/Images/og-image.png">
+    <meta property="og:site_name" content="Djembay">
+    <meta property="og:locale" content="en_US">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Djembay - The Future of African Music Streaming">
+    <meta name="twitter:description" content="Premium African-inspired music streaming platform. Join the waitlist now.">
+    <meta name="twitter:image" content="https://djembay.com/Assets/Images/twitter-image.png">
+    
+    <link rel="canonical" href="https://djembay.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -53,12 +75,12 @@
         .logo {
             position: absolute;
             top: 2.5rem;
-            left: 2.5rem;
+            left: 6rem;
             z-index: 50;
         }
 
         .logo img {
-            height: 80px;
+            height: 95px;
             width: auto;
         }
 
@@ -142,20 +164,6 @@
             margin-bottom: 1.2rem;
         }
 
-        .feature-list {
-            list-style: none;
-            margin-top: 1.2rem;
-        }
-
-        .feature-list li {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            margin-bottom: 0.6rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
         .comparison-table {
             margin-top: 1.2rem;
             width: 100%;
@@ -209,6 +217,84 @@
             color: #000000;
         }
 
+        .waitlist-form {
+            display: none;
+            margin-top: 1.5rem;
+        }
+
+        .waitlist-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(248, 250, 252, 0.1);
+            border: 1px solid rgba(248, 250, 252, 0.3);
+            color: #F8FAFC;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #7C3AED;
+        }
+
+        .form-group select option {
+            background: #121826;
+            color: #F8FAFC;
+        }
+
+        .submit-btn {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 0.8rem 1.8rem;
+            background: #7C3AED;
+            border: none;
+            color: #F8FAFC;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #6d28d9;
+        }
+
+        .back-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #F8FAFC;
+            cursor: pointer;
+            opacity: 0.6;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            opacity: 1;
+        }
+
         .image-side {
             width: 45%;
             height: 100%;
@@ -250,6 +336,27 @@
 
         .page-3 .image-shadow {
             background: linear-gradient(to right, #000000 0%, #000000 15%, rgba(0, 0, 0, 0.95) 30%, rgba(0, 0, 0, 0.85) 45%, rgba(0, 0, 0, 0.65) 60%, rgba(0, 0, 0, 0.35) 75%, rgba(0, 0, 0, 0.1) 90%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(248, 250, 252, 0.5);
+            text-align: center;
+        }
+
+        .footer a {
+            color: #7C3AED;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
 
         .navigation {
@@ -316,7 +423,7 @@
 
         .nav-indicators {
             position: fixed;
-            bottom: 2.5rem;
+            bottom: 3rem;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -340,55 +447,29 @@
         }
 
         @media (max-width: 768px) {
-            .page {
-                flex-direction: column;
+            body {
+                overflow: auto;
             }
 
-            .page-content {
-                width: 100%;
-                padding: 2rem;
-                order: 1;
-            }
-
-            .image-side {
-                width: 100%;
-                height: 45%;
-                order: 2;
-            }
-
-            .page-title {
-                font-size: 1.8rem;
-            }
-
-            .page-description {
-                font-size: 0.8rem;
+            .container {
+                display: none;
             }
 
             .navigation {
-                padding: 0 0.5rem;
+                display: none;
             }
 
-            .nav-arrow {
-                font-size: 3rem;
+            .nav-indicators {
+                display: none;
             }
 
-            .logo {
-                top: 1rem;
-                left: 1rem;
+            .edge-shadow-left,
+            .edge-shadow-right {
+                display: none;
             }
 
-            .logo img {
-                height: 50px;
-            }
-
-            .header-nav {
-                top: 1.2rem;
-                right: 1rem;
-                gap: 1rem;
-            }
-
-            .header-link {
-                font-size: 0.7rem;
+            .footer {
+                display: none;
             }
         }
     </style>
@@ -500,7 +581,7 @@
                 <span class="header-link" data-page="1">Music</span>
                 <span class="header-link hidden" data-page="2">Join</span>
             </div>
-            <div class="page-content">
+            <div class="page-content" id="joinContent">
                 <div class="page-icon">
                     <i data-lucide="user-plus" style="width: 48px; height: 48px;"></i>
                 </div>
@@ -510,9 +591,99 @@
                     We're launching soon and spots are limited. Whether you're an artist ready to share your sound 
                     with the world or a listener hungry for the best African music — sign up now and get early access.
                 </p>
-                <div class="waitlist-options">
-                    <button class="waitlist-btn">Join as Listener</button>
-                    <button class="waitlist-btn artist">Join as Artist</button>
+                <div class="waitlist-options" id="waitlistOptions">
+                    <button class="waitlist-btn" id="listenerBtn">Join as Listener</button>
+                    <button class="waitlist-btn artist" id="artistBtn">Join as Artist</button>
+                </div>
+
+                <div class="waitlist-form" id="listenerForm">
+                    <span class="back-btn" id="backFromListener">← Back</span>
+                    <form id="listenerFormElement">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select name="gender" required>
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" name="age" required min="13">
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <select name="country" id="listenerCountry" required>
+                                <option value="">Select Country</option>
+                                <option value="Rwanda">Rwanda</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Custom">Custom</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="listenerCustomCountry" style="display:none;">
+                            <label>Your Country</label>
+                            <input type="text" name="customCountry">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Join Waitlist</button>
+                    </form>
+                </div>
+
+                <div class="waitlist-form" id="artistForm">
+                    <span class="back-btn" id="backFromArtist">← Back</span>
+                    <form id="artistFormElement">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select name="gender" required>
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" name="age" required min="13">
+                        </div>
+                        <div class="form-group">
+                            <label>Social Link (Instagram)</label>
+                            <input type="url" name="socialLink" required placeholder="https://instagram.com/...">
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <select name="country" id="artistCountry" required>
+                                <option value="">Select Country</option>
+                                <option value="Rwanda">Rwanda</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Custom">Custom</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="artistCustomCountry" style="display:none;">
+                            <label>Your Country</label>
+                            <input type="text" name="customCountry">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Join as Artist</button>
+                    </form>
                 </div>
             </div>
             <div class="image-side">
@@ -535,99 +706,229 @@
         <div class="indicator" data-index="2"></div>
     </div>
 
+    <div class="footer">
+        Created by <a href="https://pireactive.vercel.app/" target="_blank">PIReactive</a>
+    </div>
+
     <script>
-        (function() {
-            const container = document.getElementById('pageContainer');
-            const indicators = document.querySelectorAll('.indicator');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const edgeShadowLeft = document.getElementById('edgeShadowLeft');
-            const edgeShadowRight = document.getElementById('edgeShadowRight');
-            let currentPage = 0;
-            const totalPages = 3;
+        if (window.innerWidth <= 768) {
+            window.location.href = 'index.html';
+        }
+    </script>
 
-            function updateHeaderLinks(index) {
-                const allHeaderLinks = document.querySelectorAll('.header-link');
-                allHeaderLinks.forEach(link => {
-                    const linkPage = parseInt(link.getAttribute('data-page'));
-                    if (linkPage === index) {
-                        link.classList.add('hidden');
-                    } else {
-                        link.classList.remove('hidden');
-                    }
-                });
-            }
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
 
-            function updateUI(index) {
-                container.style.transform = `translateX(-${index * 100}vw)`;
+        const firebaseConfig = {
+            apiKey: window.ENV_FIREBASE_API_KEY,
+            authDomain: window.ENV_FIREBASE_AUTH_DOMAIN,
+            databaseURL: window.ENV_FIREBASE_DATABASE_URL,
+            projectId: window.ENV_FIREBASE_PROJECT_ID,
+            storageBucket: window.ENV_FIREBASE_STORAGE_BUCKET,
+            messagingSenderId: window.ENV_FIREBASE_MESSAGING_SENDER_ID,
+            appId: window.ENV_FIREBASE_APP_ID,
+            measurementId: window.ENV_FIREBASE_MEASUREMENT_ID
+        };
 
-                indicators.forEach(ind => ind.classList.remove('active'));
-                const activeIndicator = document.querySelector(`.indicator[data-index="${index}"]`);
-                if (activeIndicator) activeIndicator.classList.add('active');
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
 
-                prevBtn.style.opacity = index === 0 ? '0.15' : '1';
-                prevBtn.style.pointerEvents = index === 0 ? 'none' : 'auto';
-                nextBtn.style.opacity = index === totalPages - 1 ? '0.15' : '1';
-                nextBtn.style.pointerEvents = index === totalPages - 1 ? 'none' : 'auto';
+        const container = document.getElementById('pageContainer');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const edgeShadowLeft = document.getElementById('edgeShadowLeft');
+        const edgeShadowRight = document.getElementById('edgeShadowRight');
+        let currentPage = 0;
+        const totalPages = 3;
 
-                updateHeaderLinks(index);
-            }
-
-            function navigateTo(index) {
-                if (index >= 0 && index < totalPages && index !== currentPage) {
-                    currentPage = index;
-                    updateUI(currentPage);
+        function updateHeaderLinks(index) {
+            const allHeaderLinks = document.querySelectorAll('.header-link');
+            allHeaderLinks.forEach(link => {
+                const linkPage = parseInt(link.getAttribute('data-page'));
+                if (linkPage === index) {
+                    link.classList.add('hidden');
+                } else {
+                    link.classList.remove('hidden');
                 }
+            });
+        }
+
+        function updateUI(index) {
+            container.style.transform = `translateX(-${index * 100}vw)`;
+
+            indicators.forEach(ind => ind.classList.remove('active'));
+            const activeIndicator = document.querySelector(`.indicator[data-index="${index}"]`);
+            if (activeIndicator) activeIndicator.classList.add('active');
+
+            prevBtn.style.opacity = index === 0 ? '0.15' : '1';
+            prevBtn.style.pointerEvents = index === 0 ? 'none' : 'auto';
+            nextBtn.style.opacity = index === totalPages - 1 ? '0.15' : '1';
+            nextBtn.style.pointerEvents = index === totalPages - 1 ? 'none' : 'auto';
+
+            updateHeaderLinks(index);
+        }
+
+        function navigateTo(index) {
+            if (index >= 0 && index < totalPages && index !== currentPage) {
+                currentPage = index;
+                updateUI(currentPage);
             }
+        }
 
-            document.querySelectorAll('.header-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    const index = parseInt(this.getAttribute('data-page'));
-                    navigateTo(index);
-                });
+        document.querySelectorAll('.header-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-page'));
+                navigateTo(index);
             });
+        });
 
-            indicators.forEach(indicator => {
-                indicator.addEventListener('click', function() {
-                    const index = parseInt(this.getAttribute('data-index'));
-                    navigateTo(index);
-                });
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                navigateTo(index);
             });
+        });
 
-            prevBtn.addEventListener('click', function() {
+        prevBtn.addEventListener('click', function() {
+            navigateTo(currentPage - 1);
+        });
+
+        nextBtn.addEventListener('click', function() {
+            navigateTo(currentPage + 1);
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
                 navigateTo(currentPage - 1);
-            });
-
-            nextBtn.addEventListener('click', function() {
+            } else if (e.key === 'ArrowRight') {
                 navigateTo(currentPage + 1);
-            });
+            }
+        });
 
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'ArrowLeft') {
-                    navigateTo(currentPage - 1);
-                } else if (e.key === 'ArrowRight') {
-                    navigateTo(currentPage + 1);
-                }
-            });
+        document.addEventListener('mousemove', function(e) {
+            const threshold = 120;
+            if (e.clientX < threshold) {
+                edgeShadowLeft.classList.add('visible');
+            } else {
+                edgeShadowLeft.classList.remove('visible');
+            }
 
-            document.addEventListener('mousemove', function(e) {
-                const threshold = 120;
-                if (e.clientX < threshold) {
-                    edgeShadowLeft.classList.add('visible');
-                } else {
-                    edgeShadowLeft.classList.remove('visible');
-                }
+            if (e.clientX > window.innerWidth - threshold) {
+                edgeShadowRight.classList.add('visible');
+            } else {
+                edgeShadowRight.classList.remove('visible');
+            }
+        });
 
-                if (e.clientX > window.innerWidth - threshold) {
-                    edgeShadowRight.classList.add('visible');
-                } else {
-                    edgeShadowRight.classList.remove('visible');
-                }
-            });
+        document.getElementById('listenerBtn').addEventListener('click', function() {
+            document.getElementById('waitlistOptions').style.display = 'none';
+            document.querySelector('#joinContent .page-icon').style.display = 'none';
+            document.querySelector('#joinContent .page-title').style.display = 'none';
+            document.querySelector('#joinContent .page-subtitle').style.display = 'none';
+            document.querySelector('#joinContent .page-description').style.display = 'none';
+            document.getElementById('listenerForm').classList.add('active');
+        });
 
-            lucide.createIcons();
-            updateUI(0);
-        })();
+        document.getElementById('artistBtn').addEventListener('click', function() {
+            document.getElementById('waitlistOptions').style.display = 'none';
+            document.querySelector('#joinContent .page-icon').style.display = 'none';
+            document.querySelector('#joinContent .page-title').style.display = 'none';
+            document.querySelector('#joinContent .page-subtitle').style.display = 'none';
+            document.querySelector('#joinContent .page-description').style.display = 'none';
+            document.getElementById('artistForm').classList.add('active');
+        });
+
+        document.getElementById('backFromListener').addEventListener('click', function() {
+            document.getElementById('listenerForm').classList.remove('active');
+            resetJoinView();
+        });
+
+        document.getElementById('backFromArtist').addEventListener('click', function() {
+            document.getElementById('artistForm').classList.remove('active');
+            resetJoinView();
+        });
+
+        function resetJoinView() {
+            document.getElementById('waitlistOptions').style.display = 'flex';
+            document.querySelector('#joinContent .page-icon').style.display = 'block';
+            document.querySelector('#joinContent .page-title').style.display = 'block';
+            document.querySelector('#joinContent .page-subtitle').style.display = 'block';
+            document.querySelector('#joinContent .page-description').style.display = 'block';
+        }
+
+        document.getElementById('listenerCountry').addEventListener('change', function() {
+            const customField = document.getElementById('listenerCustomCountry');
+            if (this.value === 'Custom') {
+                customField.style.display = 'block';
+            } else {
+                customField.style.display = 'none';
+            }
+        });
+
+        document.getElementById('artistCountry').addEventListener('change', function() {
+            const customField = document.getElementById('artistCustomCountry');
+            if (this.value === 'Custom') {
+                customField.style.display = 'block';
+            } else {
+                customField.style.display = 'none';
+            }
+        });
+
+        document.getElementById('listenerFormElement').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = {
+                type: 'listener',
+                name: formData.get('name'),
+                gender: formData.get('gender'),
+                age: formData.get('age'),
+                country: formData.get('country') === 'Custom' ? formData.get('customCountry') : formData.get('country'),
+                phone: formData.get('phone'),
+                timestamp: new Date().toISOString()
+            };
+            
+            push(ref(database, 'waitlist'), data)
+                .then(() => {
+                    alert('Successfully joined the waitlist!');
+                    this.reset();
+                    document.getElementById('listenerForm').classList.remove('active');
+                    resetJoinView();
+                })
+                .catch((error) => {
+                    alert('Error: ' + error.message);
+                });
+        });
+
+        document.getElementById('artistFormElement').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = {
+                type: 'artist',
+                name: formData.get('name'),
+                gender: formData.get('gender'),
+                age: formData.get('age'),
+                socialLink: formData.get('socialLink'),
+                country: formData.get('country') === 'Custom' ? formData.get('customCountry') : formData.get('country'),
+                phone: formData.get('phone'),
+                timestamp: new Date().toISOString()
+            };
+            
+            push(ref(database, 'waitlist'), data)
+                .then(() => {
+                    alert('Successfully joined as an artist!');
+                    this.reset();
+                    document.getElementById('artistForm').classList.remove('active');
+                    resetJoinView();
+                })
+                .catch((error) => {
+                    alert('Error: ' + error.message);
+                });
+        });
+
+        lucide.createIcons();
+        updateUI(0);
     </script>
 </body>
 </html>
