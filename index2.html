@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Djembay - The Future of African Music Streaming</title>
+    <meta name="description" content="Djembay is a premium African-inspired music streaming platform. Discover Afrobeats, Amapiano, Afro-fusion, and global African diaspora sounds. Join the waitlist today.">
+    <meta name="keywords" content="African music, music streaming, Afrobeats, Amapiano, Afro-fusion, African artists, music platform, Djembay, African diaspora, music discovery">
+    <meta name="author" content="PIReactive">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="theme-color" content="#7c3aed">
+    
+    <meta property="og:title" content="Djembay - The Future of African Music Streaming">
+    <meta property="og:description" content="Premium African-inspired music streaming platform. Discover the rhythms of Africa and join the cultural movement.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://djembay.com">
+    <meta property="og:image" content="https://djembay.com/Assets/Images/og-image.png">
+    <meta property="og:site_name" content="Djembay">
+    <meta property="og:locale" content="en_US">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Djembay - The Future of African Music Streaming">
+    <meta name="twitter:description" content="Premium African-inspired music streaming platform. Join the waitlist now.">
+    <meta name="twitter:image" content="https://djembay.com/Assets/Images/twitter-image.png">
+    
+    <link rel="canonical" href="https://djembay.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            touch-action: pan-y;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            width: 300vw;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        .page {
+            flex: 0 0 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .page-1 {
+            background: #7c3aed;
+        }
+
+        .page-2 {
+            background: #14b8a6;
+        }
+
+        .page-3 {
+            background: #000000;
+        }
+
+        .logo {
+            padding: 1.5rem 1.5rem 0 1.5rem;
+            z-index: 50;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 1.5rem;
+            z-index: 50;
+        }
+
+        .header-link {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.8rem;
+            color: #F8FAFC;
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.5rem 0;
+        }
+
+        .header-link.hidden {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .image-section {
+            width: 100%;
+            height: 40vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-shadow {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            pointer-events: none;
+        }
+
+        .page-1 .image-shadow {
+            background: linear-gradient(to top, #7c3aed 0%, rgba(124, 58, 237, 0.7) 40%, rgba(124, 58, 237, 0) 100%);
+        }
+
+        .page-2 .image-shadow {
+            background: linear-gradient(to top, #14b8a6 0%, rgba(20, 184, 166, 0.7) 40%, rgba(20, 184, 166, 0) 100%);
+        }
+
+        .page-3 .image-shadow {
+            background: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .content-section {
+            flex: 1;
+            padding: 1.5rem;
+            color: #F8FAFC;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-icon {
+            margin-bottom: 1rem;
+            color: #F8FAFC;
+        }
+
+        .page-1 .page-icon {
+            color: #F5B301;
+        }
+
+        .page-2 .page-icon {
+            color: #FFFFFF;
+        }
+
+        .page-3 .page-icon {
+            color: #F5B301;
+        }
+
+        .page-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .page-description {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 0.6rem;
+        }
+
+        .page-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-table {
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .comparison-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(248, 250, 252, 0.2);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            gap: 0.5rem;
+        }
+
+        .comparison-row span:nth-child(1) {
+            flex: 1;
+        }
+
+        .comparison-row span:nth-child(2),
+        .comparison-row span:nth-child(3) {
+            flex: 0 0 auto;
+            text-align: right;
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .waitlist-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .waitlist-btn {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 0.9rem;
+            border: 2px solid #F8FAFC;
+            background: transparent;
+            color: #F8FAFC;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .waitlist-btn:active {
+            background: #F8FAFC;
+            color: #000000;
+        }
+
+        .waitlist-btn.artist {
+            border-color: #F5B301;
+            color: #F5B301;
+        }
+
+        .waitlist-btn.artist:active {
+            background: #F5B301;
+            color: #000000;
+        }
+
+        .waitlist-form {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .waitlist-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 0.8rem;
+        }
+
+        .form-group label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            display: block;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.7rem;
+            background: rgba(248, 250, 252, 0.1);
+            border: 1px solid rgba(248, 250, 252, 0.3);
+            color: #F8FAFC;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            outline: none;
+            border-radius: 0;
+            -webkit-appearance: none;
+        }
+
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+            padding-right: 2rem;
+        }
+
+        .form-group select option {
+            background: #121826;
+            color: #F8FAFC;
+        }
+
+        .submit-btn {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 0.9rem;
+            background: #7C3AED;
+            border: none;
+            color: #F8FAFC;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn:active {
+            background: #6d28d9;
+        }
+
+        .back-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #F8FAFC;
+            cursor: pointer;
+            opacity: 0.6;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+        }
+
+        .nav-indicators {
+            position: fixed;
+            bottom: 1.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.6rem;
+            z-index: 100;
+        }
+
+        .indicator {
+            width: 24px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(248, 250, 252, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #7C3AED;
+            width: 36px;
+            box-shadow: 0 0 12px rgba(124, 58, 237, 0.6);
+        }
+
+        .footer {
+            padding: 1rem;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            color: rgba(248, 250, 252, 0.5);
+        }
+
+        .footer a {
+            color: #7C3AED;
+            text-decoration: none;
+        }
+
+        .swipe-hint {
+            position: fixed;
+            bottom: 4rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            color: rgba(248, 250, 252, 0.4);
+            z-index: 100;
+            pointer-events: none;
+            animation: fadeHint 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeHint {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="pageContainer">
+        <div class="page page-1">
+            <div class="logo">
+                <img src="Assets/Images/logo.png" alt="Djembay">
+            </div>
+            <div class="header-nav">
+                <span class="header-link hidden" data-page="0">Home</span>
+                <span class="header-link" data-page="1">Music</span>
+                <span class="header-link" data-page="2">Join</span>
+            </div>
+            <div class="image-section">
+                <div class="image-container">
+                    <img src="Assets/Images/page1.png" alt="Discover African Music">
+                    <div class="image-shadow"></div>
+                </div>
+            </div>
+            <div class="content-section">
+                <div class="page-icon">
+                    <i data-lucide="radio" style="width: 36px; height: 36px;"></i>
+                </div>
+                <h1 class="page-title">The Future of African Music Is Coming</h1>
+                <p class="page-subtitle">Djembay launches soon — a streaming revolution built for Africa</p>
+                <p class="page-description">
+                    Djembay is not just another music app. It's a cultural movement designed to amplify African voices, 
+                    connect artists directly to fans, and deliver the rhythms of the continent to the world.
+                </p>
+                <p class="page-description">
+                    From Afrobeats to Amapiano, Highlife to Bongo Flava — Djembay brings every sound together 
+                    in one powerful, beautiful experience.
+                </p>
+            </div>
+        </div>
+
+        <div class="page page-2">
+            <div class="logo">
+                <img src="Assets/Images/logo.png" alt="Djembay">
+            </div>
+            <div class="header-nav">
+                <span class="header-link" data-page="0">Home</span>
+                <span class="header-link hidden" data-page="1">Music</span>
+                <span class="header-link" data-page="2">Join</span>
+            </div>
+            <div class="image-section">
+                <div class="image-container">
+                    <img src="Assets/Images/page2.png" alt="Explore Music">
+                    <div class="image-shadow"></div>
+                </div>
+            </div>
+            <div class="content-section">
+                <div class="page-icon">
+                    <i data-lucide="zap" style="width: 36px; height: 36px;"></i>
+                </div>
+                <h1 class="page-title">Built for Artists & Listeners</h1>
+                <p class="page-subtitle">More than streaming — a fair ecosystem for everyone</p>
+                <p class="page-description">
+                    <strong>For Artists:</strong> Keep up to 80% of your royalties. Get real-time analytics, 
+                    direct fan connections, and promotional tools.
+                </p>
+                <p class="page-description">
+                    <strong>For Listeners:</strong> Discover curated African playlists, offline listening optimized 
+                    for low data, and high-quality audio.
+                </p>
+                <div class="comparison-table">
+                    <div class="comparison-row">
+                        <span>Artist Royalties</span>
+                        <span>Up to 80%</span>
+                        <span>~15-30%</span>
+                    </div>
+                    <div class="comparison-row">
+                        <span>Offline Mode</span>
+                        <span>Optimized</span>
+                        <span>Standard</span>
+                    </div>
+                    <div class="comparison-row">
+                        <span>Data Usage</span>
+                        <span>Ultra-low</span>
+                        <span>High</span>
+                    </div>
+                    <div class="comparison-row">
+                        <span>African Content</span>
+                        <span>Curated</span>
+                        <span>Limited</span>
+                    </div>
+                    <div class="comparison-row">
+                        <span>Artist Support</span>
+                        <span>Direct tools</span>
+                        <span>Minimal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page page-3">
+            <div class="logo">
+                <img src="Assets/Images/logo.png" alt="Djembay">
+            </div>
+            <div class="header-nav">
+                <span class="header-link" data-page="0">Home</span>
+                <span class="header-link" data-page="1">Music</span>
+                <span class="header-link hidden" data-page="2">Join</span>
+            </div>
+            <div class="image-section">
+                <div class="image-container">
+                    <img src="Assets/Images/page3.png" alt="Music Player">
+                    <div class="image-shadow"></div>
+                </div>
+            </div>
+            <div class="content-section" id="joinContent">
+                <div class="page-icon">
+                    <i data-lucide="user-plus" style="width: 36px; height: 36px;"></i>
+                </div>
+                <h1 class="page-title">Join the Waitlist</h1>
+                <p class="page-subtitle">Be the first to experience Djembay</p>
+                <p class="page-description">
+                    We're launching soon and spots are limited. Sign up now and get early access.
+                </p>
+                <div class="waitlist-options" id="waitlistOptions">
+                    <button class="waitlist-btn" id="listenerBtn">Join as Listener</button>
+                    <button class="waitlist-btn artist" id="artistBtn">Join as Artist</button>
+                </div>
+
+                <div class="waitlist-form" id="listenerForm">
+                    <span class="back-btn" id="backFromListener">← Back</span>
+                    <form id="listenerFormElement">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select name="gender" required>
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" name="age" required min="13">
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <select name="country" id="listenerCountry" required>
+                                <option value="">Select Country</option>
+                                <option value="Rwanda">Rwanda</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Custom">Custom</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="listenerCustomCountry" style="display:none;">
+                            <label>Your Country</label>
+                            <input type="text" name="customCountry">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Join Waitlist</button>
+                    </form>
+                </div>
+
+                <div class="waitlist-form" id="artistForm">
+                    <span class="back-btn" id="backFromArtist">← Back</span>
+                    <form id="artistFormElement">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select name="gender" required>
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" name="age" required min="13">
+                        </div>
+                        <div class="form-group">
+                            <label>Social Link (Instagram)</label>
+                            <input type="url" name="socialLink" required placeholder="https://instagram.com/...">
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <select name="country" id="artistCountry" required>
+                                <option value="">Select Country</option>
+                                <option value="Rwanda">Rwanda</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Custom">Custom</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="artistCustomCountry" style="display:none;">
+                            <label>Your Country</label>
+                            <input type="text" name="customCountry">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Join as Artist</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="swipe-hint" id="swipeHint">← Swipe to explore →</div>
+
+    <div class="nav-indicators">
+        <div class="indicator active" data-index="0"></div>
+        <div class="indicator" data-index="1"></div>
+        <div class="indicator" data-index="2"></div>
+    </div>
+
+    <div class="footer">
+        Created by <a href="https://pireactive.vercel.app/" target="_blank">PIReactive</a>
+    </div>
+
+    <script>
+        (function() {
+            const container = document.getElementById('pageContainer');
+            const indicators = document.querySelectorAll('.indicator');
+            const swipeHint = document.getElementById('swipeHint');
+            let currentPage = 0;
+            const totalPages = 3;
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let touchEndX = 0;
+            let touchEndY = 0;
+            let isSwiping = false;
+
+            function updateHeaderLinks(index) {
+                const allHeaderLinks = document.querySelectorAll('.header-link');
+                allHeaderLinks.forEach(link => {
+                    const linkPage = parseInt(link.getAttribute('data-page'));
+                    if (linkPage === index) {
+                        link.classList.add('hidden');
+                    } else {
+                        link.classList.remove('hidden');
+                    }
+                });
+            }
+
+            function updateUI(index) {
+                container.style.transform = `translateX(-${index * 100}vw)`;
+
+                indicators.forEach(ind => ind.classList.remove('active'));
+                const activeIndicator = document.querySelector(`.indicator[data-index="${index}"]`);
+                if (activeIndicator) activeIndicator.classList.add('active');
+
+                updateHeaderLinks(index);
+
+                if (index === 0 || index === totalPages - 1) {
+                    swipeHint.style.opacity = '0';
+                } else {
+                    swipeHint.style.opacity = '1';
+                }
+            }
+
+            function navigateTo(index) {
+                if (index >= 0 && index < totalPages && index !== currentPage) {
+                    currentPage = index;
+                    updateUI(currentPage);
+                }
+            }
+
+            container.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+                isSwiping = true;
+            }, {passive: true});
+
+            container.addEventListener('touchend', function(e) {
+                if (!isSwiping) return;
+                touchEndX = e.changedTouches[0].screenX;
+                touchEndY = e.changedTouches[0].screenY;
+                handleSwipe();
+                isSwiping = false;
+            }, {passive: true});
+
+            function handleSwipe() {
+                const diffX = touchStartX - touchEndX;
+                const diffY = touchStartY - touchEndY;
+
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                    if (diffX > 0 && currentPage < totalPages - 1) {
+                        navigateTo(currentPage + 1);
+                    } else if (diffX < 0 && currentPage > 0) {
+                        navigateTo(currentPage - 1);
+                    }
+                }
+            }
+
+            document.querySelectorAll('.header-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const index = parseInt(this.getAttribute('data-page'));
+                    navigateTo(index);
+                });
+            });
+
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    navigateTo(index);
+                });
+            });
+
+            document.getElementById('listenerBtn').addEventListener('click', function() {
+                document.getElementById('waitlistOptions').style.display = 'none';
+                document.querySelector('#joinContent .page-icon').style.display = 'none';
+                document.querySelector('#joinContent .page-title').style.display = 'none';
+                document.querySelector('#joinContent .page-subtitle').style.display = 'none';
+                document.querySelector('#joinContent .page-description').style.display = 'none';
+                document.getElementById('listenerForm').classList.add('active');
+            });
+
+            document.getElementById('artistBtn').addEventListener('click', function() {
+                document.getElementById('waitlistOptions').style.display = 'none';
+                document.querySelector('#joinContent .page-icon').style.display = 'none';
+                document.querySelector('#joinContent .page-title').style.display = 'none';
+                document.querySelector('#joinContent .page-subtitle').style.display = 'none';
+                document.querySelector('#joinContent .page-description').style.display = 'none';
+                document.getElementById('artistForm').classList.add('active');
+            });
+
+            document.getElementById('backFromListener').addEventListener('click', function() {
+                document.getElementById('listenerForm').classList.remove('active');
+                resetJoinView();
+            });
+
+            document.getElementById('backFromArtist').addEventListener('click', function() {
+                document.getElementById('artistForm').classList.remove('active');
+                resetJoinView();
+            });
+
+            function resetJoinView() {
+                document.getElementById('waitlistOptions').style.display = 'flex';
+                document.querySelector('#joinContent .page-icon').style.display = 'block';
+                document.querySelector('#joinContent .page-title').style.display = 'block';
+                document.querySelector('#joinContent .page-subtitle').style.display = 'block';
+                document.querySelector('#joinContent .page-description').style.display = 'block';
+            }
+
+            document.getElementById('listenerCountry').addEventListener('change', function() {
+                const customField = document.getElementById('listenerCustomCountry');
+                customField.style.display = this.value === 'Custom' ? 'block' : 'none';
+            });
+
+            document.getElementById('artistCountry').addEventListener('change', function() {
+                const customField = document.getElementById('artistCustomCountry');
+                customField.style.display = this.value === 'Custom' ? 'block' : 'none';
+            });
+
+            document.getElementById('listenerFormElement').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Successfully joined the waitlist!');
+                this.reset();
+                document.getElementById('listenerForm').classList.remove('active');
+                resetJoinView();
+            });
+
+            document.getElementById('artistFormElement').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Successfully joined as an artist!');
+                this.reset();
+                document.getElementById('artistForm').classList.remove('active');
+                resetJoinView();
+            });
+
+            lucide.createIcons();
+            updateUI(0);
+
+            setTimeout(() => {
+                swipeHint.style.opacity = '1';
+            }, 1000);
+        })();
+    </script>
+</body>
+</html>
