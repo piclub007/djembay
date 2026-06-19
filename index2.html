@@ -60,17 +60,9 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        .page-1 {
-            background: #7c3aed;
-        }
-
-        .page-2 {
-            background: #14b8a6;
-        }
-
-        .page-3 {
-            background: #000000;
-        }
+        .page-1 { background: #7c3aed; }
+        .page-2 { background: #14b8a6; }
+        .page-3 { background: #000000; }
 
         .top-bar {
             display: flex;
@@ -102,20 +94,15 @@
             text-transform: uppercase;
             opacity: 0.8;
             transition: opacity 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .header-link:active {
-            opacity: 1;
-        }
-
-        .header-link.hidden {
-            opacity: 0.25;
-            pointer-events: none;
-        }
+        .header-link:active { opacity: 1; }
+        .header-link.hidden { opacity: 0.25; pointer-events: none; }
 
         .image-section {
             width: 100%;
-            height: 38vh;
+            height: 35vh;
             position: relative;
             overflow: hidden;
             flex-shrink: 0;
@@ -142,17 +129,9 @@
             pointer-events: none;
         }
 
-        .page-1 .image-shadow {
-            background: linear-gradient(to top, #7c3aed 0%, rgba(124, 58, 237, 0.5) 50%, rgba(124, 58, 237, 0) 100%);
-        }
-
-        .page-2 .image-shadow {
-            background: linear-gradient(to top, #14b8a6 0%, rgba(20, 184, 166, 0.5) 50%, rgba(20, 184, 166, 0) 100%);
-        }
-
-        .page-3 .image-shadow {
-            background: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
-        }
+        .page-1 .image-shadow { background: linear-gradient(to top, #7c3aed 0%, rgba(124, 58, 237, 0.5) 50%, rgba(124, 58, 237, 0) 100%); }
+        .page-2 .image-shadow { background: linear-gradient(to top, #14b8a6 0%, rgba(20, 184, 166, 0.5) 50%, rgba(20, 184, 166, 0) 100%); }
+        .page-3 .image-shadow { background: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%); }
 
         .content-section {
             flex: 1;
@@ -163,21 +142,10 @@
             overflow-y: auto;
         }
 
-        .page-icon {
-            margin-bottom: 0.6rem;
-        }
-
-        .page-1 .page-icon {
-            color: #F5B301;
-        }
-
-        .page-2 .page-icon {
-            color: #FFFFFF;
-        }
-
-        .page-3 .page-icon {
-            color: #F5B301;
-        }
+        .page-icon { margin-bottom: 0.6rem; }
+        .page-1 .page-icon { color: #F5B301; }
+        .page-2 .page-icon { color: #FFFFFF; }
+        .page-3 .page-icon { color: #F5B301; }
 
         .page-title {
             font-family: 'Poppins', sans-serif;
@@ -223,20 +191,10 @@
             gap: 0.3rem;
         }
 
-        .comparison-row span:first-child {
-            flex: 1;
-        }
-
+        .comparison-row span:first-child { flex: 1; }
         .comparison-row span:nth-child(2),
-        .comparison-row span:nth-child(3) {
-            flex: 0 0 auto;
-            text-align: right;
-            min-width: 50px;
-        }
-
-        .comparison-row:last-child {
-            border-bottom: none;
-        }
+        .comparison-row span:nth-child(3) { flex: 0 0 auto; text-align: right; min-width: 50px; }
+        .comparison-row:last-child { border-bottom: none; }
 
         .waitlist-options {
             display: flex;
@@ -258,22 +216,12 @@
             text-transform: uppercase;
             text-align: center;
             transition: background 0.3s ease, color 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .waitlist-btn:active {
-            background: #F8FAFC;
-            color: #000000;
-        }
-
-        .waitlist-btn.artist {
-            border-color: #F5B301;
-            color: #F5B301;
-        }
-
-        .waitlist-btn.artist:active {
-            background: #F5B301;
-            color: #000000;
-        }
+        .waitlist-btn:active { background: #F8FAFC; color: #000000; }
+        .waitlist-btn.artist { border-color: #F5B301; color: #F5B301; }
+        .waitlist-btn.artist:active { background: #F5B301; color: #000000; }
 
         .waitlist-form {
             display: none;
@@ -281,9 +229,7 @@
             flex: 1;
         }
 
-        .waitlist-form.active {
-            display: flex;
-        }
+        .waitlist-form.active { display: flex; }
 
         .form-scroll {
             flex: 1;
@@ -301,11 +247,10 @@
             opacity: 0.6;
             padding: 0.2rem 0;
             flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .back-btn:active {
-            opacity: 1;
-        }
+        .back-btn:active { opacity: 1; }
 
         .form-group {
             display: flex;
@@ -342,15 +287,9 @@
             padding-right: 2rem;
         }
 
-        .form-group select option {
-            background: #121826;
-            color: #F8FAFC;
-        }
-
+        .form-group select option { background: #121826; color: #F8FAFC; }
         .form-group input:focus,
-        .form-group select:focus {
-            border-color: #7C3AED;
-        }
+        .form-group select:focus { border-color: #7C3AED; }
 
         .submit-btn {
             font-family: 'Inter', sans-serif;
@@ -366,10 +305,55 @@
             width: 100%;
             margin-top: 0.5rem;
             flex-shrink: 0;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .submit-btn:active {
-            background: #6d28d9;
+        .submit-btn:active { background: #6d28d9; }
+        .submit-btn.loading { pointer-events: none; opacity: 0.7; }
+
+        .submit-btn .spinner {
+            display: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(248, 250, 252, 0.3);
+            border-top-color: #F8FAFC;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .submit-btn.loading .spinner { display: block; }
+        .submit-btn.loading .btn-text { opacity: 0.5; }
+
+        @keyframes spin {
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        .thank-you-msg {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex: 1;
+            gap: 0.8rem;
+        }
+
+        .thank-you-msg.active { display: flex; }
+        .thank-you-msg .check-icon { color: #14b8a6; }
+        .thank-you-msg .msg-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        .thank-you-msg .msg-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            opacity: 0.7;
         }
 
         .nav-indicators {
@@ -405,15 +389,10 @@
             flex-shrink: 0;
         }
 
-        .footer a {
-            color: #7C3AED;
-            text-decoration: none;
-        }
+        .footer a { color: #7C3AED; text-decoration: none; }
 
         @media (min-width: 769px) {
-            body {
-                display: none;
-            }
+            body { display: none; }
         }
     </style>
 </head>
@@ -421,9 +400,7 @@
     <div class="container" id="pageContainer">
         <div class="page page-1">
             <div class="top-bar">
-                <div class="logo">
-                    <img src="Assets/Images/logo.png" alt="Djembay">
-                </div>
+                <div class="logo"><img src="Assets/Images/logo.png" alt="Djembay"></div>
                 <div class="header-nav">
                     <span class="header-link hidden" data-page="0">Home</span>
                     <span class="header-link" data-page="1">Music</span>
@@ -437,27 +414,17 @@
                 </div>
             </div>
             <div class="content-section">
-                <div class="page-icon">
-                    <i data-lucide="radio" style="width: 28px; height: 28px;"></i>
-                </div>
+                <div class="page-icon"><i data-lucide="radio" style="width: 28px; height: 28px;"></i></div>
                 <h1 class="page-title">The Future of African Music Is Coming</h1>
                 <p class="page-subtitle">Djembay launches soon — a streaming revolution built for Africa</p>
-                <p class="page-description">
-                    Djembay is not just another music app. It's a cultural movement designed to amplify African voices, 
-                    connect artists directly to fans, and deliver the rhythms of the continent to the world.
-                </p>
-                <p class="page-description">
-                    From Afrobeats to Amapiano, Highlife to Bongo Flava — Djembay brings every sound together 
-                    in one powerful, beautiful experience.
-                </p>
+                <p class="page-description">Djembay is not just another music app. It's a cultural movement designed to amplify African voices, connect artists directly to fans, and deliver the rhythms of the continent to the world.</p>
+                <p class="page-description">From Afrobeats to Amapiano, Highlife to Bongo Flava — Djembay brings every sound together in one powerful, beautiful experience.</p>
             </div>
         </div>
 
         <div class="page page-2">
             <div class="top-bar">
-                <div class="logo">
-                    <img src="Assets/Images/logo.png" alt="Djembay">
-                </div>
+                <div class="logo"><img src="Assets/Images/logo.png" alt="Djembay"></div>
                 <div class="header-nav">
                     <span class="header-link" data-page="0">Home</span>
                     <span class="header-link hidden" data-page="1">Music</span>
@@ -471,54 +438,24 @@
                 </div>
             </div>
             <div class="content-section">
-                <div class="page-icon">
-                    <i data-lucide="zap" style="width: 28px; height: 28px;"></i>
-                </div>
+                <div class="page-icon"><i data-lucide="zap" style="width: 28px; height: 28px;"></i></div>
                 <h1 class="page-title">Built for Artists & Listeners</h1>
                 <p class="page-subtitle">More than streaming — a fair ecosystem for everyone</p>
-                <p class="page-description">
-                    <strong>For Artists:</strong> Keep up to 80% of your royalties. Get real-time analytics, 
-                    direct fan connections, and promotional tools.
-                </p>
-                <p class="page-description">
-                    <strong>For Listeners:</strong> Discover curated African playlists, offline listening optimized 
-                    for low data, and high-quality audio.
-                </p>
+                <p class="page-description"><strong>For Artists:</strong> Keep up to 80% of your royalties. Get real-time analytics, direct fan connections, and promotional tools.</p>
+                <p class="page-description"><strong>For Listeners:</strong> Discover curated African playlists, offline listening optimized for low data, and high-quality audio.</p>
                 <div class="comparison-table">
-                    <div class="comparison-row">
-                        <span>Artist Royalties</span>
-                        <span>Up to 80%</span>
-                        <span>~15-30%</span>
-                    </div>
-                    <div class="comparison-row">
-                        <span>Offline Mode</span>
-                        <span>Optimized</span>
-                        <span>Standard</span>
-                    </div>
-                    <div class="comparison-row">
-                        <span>Data Usage</span>
-                        <span>Ultra-low</span>
-                        <span>High</span>
-                    </div>
-                    <div class="comparison-row">
-                        <span>African Content</span>
-                        <span>Curated</span>
-                        <span>Limited</span>
-                    </div>
-                    <div class="comparison-row">
-                        <span>Artist Support</span>
-                        <span>Direct tools</span>
-                        <span>Minimal</span>
-                    </div>
+                    <div class="comparison-row"><span>Artist Royalties</span><span>Up to 80%</span><span>~15-30%</span></div>
+                    <div class="comparison-row"><span>Offline Mode</span><span>Optimized</span><span>Standard</span></div>
+                    <div class="comparison-row"><span>Data Usage</span><span>Ultra-low</span><span>High</span></div>
+                    <div class="comparison-row"><span>African Content</span><span>Curated</span><span>Limited</span></div>
+                    <div class="comparison-row"><span>Artist Support</span><span>Direct tools</span><span>Minimal</span></div>
                 </div>
             </div>
         </div>
 
         <div class="page page-3">
             <div class="top-bar">
-                <div class="logo">
-                    <img src="Assets/Images/logo.png" alt="Djembay">
-                </div>
+                <div class="logo"><img src="Assets/Images/logo.png" alt="Djembay"></div>
                 <div class="header-nav">
                     <span class="header-link" data-page="0">Home</span>
                     <span class="header-link" data-page="1">Music</span>
@@ -533,154 +470,85 @@
             </div>
             <div class="content-section" id="joinContent">
                 <div id="joinDefaultContent" style="display: flex; flex-direction: column;">
-                    <div class="page-icon">
-                        <i data-lucide="user-plus" style="width: 28px; height: 28px;"></i>
-                    </div>
+                    <div class="page-icon"><i data-lucide="user-plus" style="width: 28px; height: 28px;"></i></div>
                     <h1 class="page-title">Join the Waitlist</h1>
                     <p class="page-subtitle">Be the first to experience Djembay</p>
-                    <p class="page-description">
-                        We're launching soon and spots are limited. Sign up now and get early access.
-                    </p>
+                    <p class="page-description">We're launching soon and spots are limited. Sign up now and get early access.</p>
                     <div class="waitlist-options" id="waitlistOptions">
                         <button class="waitlist-btn" id="listenerBtn">Join as Listener</button>
                         <button class="waitlist-btn artist" id="artistBtn">Join as Artist</button>
                     </div>
                 </div>
-
                 <div class="waitlist-form" id="listenerForm">
                     <span class="back-btn" id="backFromListener">← Back</span>
                     <form id="listenerFormElement" style="display: flex; flex-direction: column; flex: 1;">
                         <div class="form-scroll">
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Gender</label>
-                                <select name="gender" required>
-                                    <option value="">Select</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Age</label>
-                                <input type="number" name="age" required min="13">
-                            </div>
-                            <div class="form-group">
-                                <label>Country</label>
-                                <select name="country" id="listenerCountry" required>
-                                    <option value="">Select Country</option>
-                                    <option value="Rwanda">Rwanda</option>
-                                    <option value="Uganda">Uganda</option>
-                                    <option value="Tanzania">Tanzania</option>
-                                    <option value="South Africa">South Africa</option>
-                                    <option value="Nigeria">Nigeria</option>
-                                    <option value="Custom">Custom</option>
-                                </select>
-                            </div>
-                            <div class="form-group" id="listenerCustomCountry" style="display:none;">
-                                <label>Your Country</label>
-                                <input type="text" name="customCountry">
-                            </div>
-                            <div class="form-group">
-                                <label>Phone Number</label>
-                                <input type="tel" name="phone" required>
-                            </div>
+                            <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
+                            <div class="form-group"><label>Gender</label><select name="gender" required><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div>
+                            <div class="form-group"><label>Age</label><input type="number" name="age" required min="13"></div>
+                            <div class="form-group"><label>Country</label><select name="country" id="listenerCountry" required><option value="">Select Country</option><option value="Rwanda">Rwanda</option><option value="Uganda">Uganda</option><option value="Tanzania">Tanzania</option><option value="South Africa">South Africa</option><option value="Nigeria">Nigeria</option><option value="Custom">Custom</option></select></div>
+                            <div class="form-group" id="listenerCustomCountry" style="display:none;"><label>Your Country</label><input type="text" name="customCountry"></div>
+                            <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" required></div>
                         </div>
-                        <button type="submit" class="submit-btn">Join Waitlist</button>
+                        <button type="submit" class="submit-btn" id="listenerSubmitBtn"><span class="btn-text">Join Waitlist</span><span class="spinner"></span></button>
                     </form>
+                    <div class="thank-you-msg" id="listenerThankYou">
+                        <div class="check-icon"><i data-lucide="check-circle" style="width: 48px; height: 48px;"></i></div>
+                        <div class="msg-title">Thank You!</div>
+                        <div class="msg-subtitle">You're on the list. We'll notify you when Djembay launches.</div>
+                    </div>
                 </div>
-
                 <div class="waitlist-form" id="artistForm">
                     <span class="back-btn" id="backFromArtist">← Back</span>
                     <form id="artistFormElement" style="display: flex; flex-direction: column; flex: 1;">
                         <div class="form-scroll">
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Gender</label>
-                                <select name="gender" required>
-                                    <option value="">Select</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Age</label>
-                                <input type="number" name="age" required min="13">
-                            </div>
-                            <div class="form-group">
-                                <label>Social Link (Instagram)</label>
-                                <input type="url" name="socialLink" required placeholder="https://instagram.com/...">
-                            </div>
-                            <div class="form-group">
-                                <label>Country</label>
-                                <select name="country" id="artistCountry" required>
-                                    <option value="">Select Country</option>
-                                    <option value="Rwanda">Rwanda</option>
-                                    <option value="Uganda">Uganda</option>
-                                    <option value="Tanzania">Tanzania</option>
-                                    <option value="South Africa">South Africa</option>
-                                    <option value="Nigeria">Nigeria</option>
-                                    <option value="Custom">Custom</option>
-                                </select>
-                            </div>
-                            <div class="form-group" id="artistCustomCountry" style="display:none;">
-                                <label>Your Country</label>
-                                <input type="text" name="customCountry">
-                            </div>
-                            <div class="form-group">
-                                <label>Phone Number</label>
-                                <input type="tel" name="phone" required>
-                            </div>
+                            <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
+                            <div class="form-group"><label>Gender</label><select name="gender" required><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div>
+                            <div class="form-group"><label>Age</label><input type="number" name="age" required min="13"></div>
+                            <div class="form-group"><label>Social Link (Instagram)</label><input type="url" name="socialLink" required placeholder="https://instagram.com/..."></div>
+                            <div class="form-group"><label>Country</label><select name="country" id="artistCountry" required><option value="">Select Country</option><option value="Rwanda">Rwanda</option><option value="Uganda">Uganda</option><option value="Tanzania">Tanzania</option><option value="South Africa">South Africa</option><option value="Nigeria">Nigeria</option><option value="Custom">Custom</option></select></div>
+                            <div class="form-group" id="artistCustomCountry" style="display:none;"><label>Your Country</label><input type="text" name="customCountry"></div>
+                            <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" required></div>
                         </div>
-                        <button type="submit" class="submit-btn">Join as Artist</button>
+                        <button type="submit" class="submit-btn" id="artistSubmitBtn"><span class="btn-text">Join as Artist</span><span class="spinner"></span></button>
                     </form>
+                    <div class="thank-you-msg" id="artistThankYou">
+                        <div class="check-icon"><i data-lucide="check-circle" style="width: 48px; height: 48px;"></i></div>
+                        <div class="msg-title">Thank You, Artist!</div>
+                        <div class="msg-subtitle">We'll review your profile and get back to you soon.</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="nav-indicators">
         <div class="indicator active" data-index="0"></div>
         <div class="indicator" data-index="1"></div>
         <div class="indicator" data-index="2"></div>
     </div>
-
-    <div class="footer">
-        Created by <a href="https://pireactive.vercel.app/" target="_blank">PIReactive</a>
-    </div>
+    <div class="footer">Created by <a href="https://pireactive.vercel.app/" target="_blank">PIReactive</a></div>
 
     <script>
         (function() {
-            if (window.innerWidth >= 769) {
-                window.location.href = 'index.html';
-                return;
-            }
+            if (window.innerWidth >= 769) { window.location.href = 'index.html'; return; }
 
             const container = document.getElementById('pageContainer');
             const indicators = document.querySelectorAll('.indicator');
             let currentPage = 0;
             const totalPages = 3;
-            let touchStartX = 0;
-            let touchStartY = 0;
-            let isSwiping = false;
+            let touchStartX = 0, touchStartY = 0, isSwiping = false;
 
             function updateHeaderLinks(index) {
                 document.querySelectorAll('.header-link').forEach(link => {
-                    const linkPage = parseInt(link.getAttribute('data-page'));
-                    link.classList.toggle('hidden', linkPage === index);
+                    link.classList.toggle('hidden', parseInt(link.getAttribute('data-page')) === index);
                 });
             }
 
             function updateUI(index) {
                 container.style.transform = `translateX(-${index * 100}vw)`;
                 indicators.forEach(ind => ind.classList.remove('active'));
-                const activeIndicator = document.querySelector(`.indicator[data-index="${index}"]`);
-                if (activeIndicator) activeIndicator.classList.add('active');
+                const active = document.querySelector(`.indicator[data-index="${index}"]`);
+                if (active) active.classList.add('active');
                 updateHeaderLinks(index);
             }
 
@@ -699,16 +567,10 @@
 
             container.addEventListener('touchend', function(e) {
                 if (!isSwiping) return;
-                const touchEndX = e.changedTouches[0].screenX;
-                const touchEndY = e.changedTouches[0].screenY;
-                const diffX = touchStartX - touchEndX;
-                const diffY = touchStartY - touchEndY;
-                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
-                    if (diffX > 0) {
-                        navigateTo(currentPage + 1);
-                    } else {
-                        navigateTo(currentPage - 1);
-                    }
+                const dx = touchStartX - e.changedTouches[0].screenX;
+                const dy = touchStartY - e.changedTouches[0].screenY;
+                if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+                    navigateTo(currentPage + (dx > 0 ? 1 : -1));
                 }
                 isSwiping = false;
             }, {passive: true});
@@ -720,8 +582,8 @@
                 });
             });
 
-            indicators.forEach(indicator => {
-                indicator.addEventListener('click', function() {
+            indicators.forEach(ind => {
+                ind.addEventListener('click', function() {
                     navigateTo(parseInt(this.getAttribute('data-index')));
                 });
             });
@@ -738,13 +600,34 @@
                 document.getElementById('joinImageSection').style.display = 'block';
             }
 
-            document.getElementById('listenerBtn').addEventListener('click', function() {
-                showForm('listenerForm');
-            });
+            function showThankYou(formId, thankYouId) {
+                const form = document.getElementById(formId);
+                const formEl = form.querySelector('form');
+                const thankYou = document.getElementById(thankYouId);
+                formEl.style.display = 'none';
+                form.querySelector('.back-btn').style.display = 'none';
+                thankYou.classList.add('active');
+                setTimeout(() => {
+                    thankYou.classList.remove('active');
+                    formEl.style.display = 'flex';
+                    form.querySelector('.back-btn').style.display = 'block';
+                    formEl.reset();
+                    hideForm(formId);
+                }, 3000);
+            }
 
-            document.getElementById('artistBtn').addEventListener('click', function() {
-                showForm('artistForm');
-            });
+            function handleSubmit(e, formId, thankYouId, submitBtnId) {
+                e.preventDefault();
+                const btn = document.getElementById(submitBtnId);
+                btn.classList.add('loading');
+                setTimeout(() => {
+                    btn.classList.remove('loading');
+                    showThankYou(formId, thankYouId);
+                }, 1200);
+            }
+
+            document.getElementById('listenerBtn').addEventListener('click', () => showForm('listenerForm'));
+            document.getElementById('artistBtn').addEventListener('click', () => showForm('artistForm'));
 
             document.getElementById('backFromListener').addEventListener('click', function() {
                 document.getElementById('listenerFormElement').reset();
@@ -765,17 +648,11 @@
             });
 
             document.getElementById('listenerFormElement').addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Successfully joined the waitlist!');
-                this.reset();
-                hideForm('listenerForm');
+                handleSubmit(e, 'listenerForm', 'listenerThankYou', 'listenerSubmitBtn');
             });
 
             document.getElementById('artistFormElement').addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Successfully joined as an artist!');
-                this.reset();
-                hideForm('artistForm');
+                handleSubmit(e, 'artistForm', 'artistThankYou', 'artistSubmitBtn');
             });
 
             lucide.createIcons();
