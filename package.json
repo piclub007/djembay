@@ -1,0 +1,25 @@
+{
+  "name": "djembay",
+  "version": "1.0.0",
+  "description": "Djembay - The Home of African Music. A premium African-inspired music streaming platform.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'No build step required'"
+  },
+  "keywords": [
+    "music",
+    "streaming",
+    "african",
+    "afrobeats",
+    "amapiano",
+    "djembay",
+    "pireactive"
+  ],
+  "author": "PIReactive",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
