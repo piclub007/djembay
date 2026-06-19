@@ -3,59 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Djembay - African Music Streaming | Discover Afrobeats, Amapiano & More</title>
-    <meta name="description" content="Djembay is a premium African music streaming platform built for artists and listeners. Stream Afrobeats, Amapiano, Afro-fusion and join the cultural movement.">
-    <meta name="keywords" content="African music streaming,Afrobeats,Amapiano,Afro-fusion,African artists,Djembay,music discovery,offline music Africa">
+    <title>Djembay - The Home of African Music | Stream, Discover, Support</title>
+    <meta name="description" content="Djembay is the home of African music. Stream Afrobeats, Amapiano, Afro-fusion. Join the waitlist and help build the future of African music streaming.">
+    <meta name="keywords" content="African music streaming,Afrobeats,Amapiano,Afro-fusion,African artists,Djembay,music discovery,join waitlist">
     <meta name="author" content="PIReactive">
     <meta name="robots" content="index,follow">
-    <meta name="language" content="English">
     <meta name="theme-color" content="#7c3aed">
-    <meta property="og:title" content="Djembay - African Music Streaming | Discover Afrobeats, Amapiano & More">
-    <meta property="og:description" content="Premium African music streaming platform built for artists and listeners. Join the cultural movement.">
+    <meta property="og:title" content="Djembay - The Home of African Music">
+    <meta property="og:description" content="Discover, stream, and support the sounds shaping Africa's future. Join the waitlist now.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://djembay.vercel.app/">
     <meta property="og:image" content="https://djembay.vercel.app/Assets/Images/og-image.png">
     <meta property="og:site_name" content="Djembay">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Djembay - African Music Streaming">
-    <meta name="twitter:description" content="Premium African music streaming platform. Join the waitlist now.">
+    <meta name="twitter:title" content="Djembay - The Home of African Music">
+    <meta name="twitter:description" content="Discover, stream, and support the sounds shaping Africa's future.">
     <meta name="twitter:image" content="https://djembay.vercel.app/Assets/Images/twitter-image.png">
     <link rel="canonical" href="https://djembay.vercel.app/">
     <link rel="icon" type="image/png" href="Assets/Images/favicon.png">
     <link rel="apple-touch-icon" href="Assets/Images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
     <script src="https://unpkg.com/lucide@latest" defer></script>
-    <style>*{margin:0;padding:0;box-sizing:border-box}body{background:#000;overflow:hidden;height:100vh;width:100vw}body.mobile{overflow:auto}.c{display:flex;height:100vh;width:300vw;transition:transform .4s cubic-bezier(.4,0,.2,1)}.p{flex:0 0 100vw;height:100vh;display:flex;align-items:center;padding:0;position:relative}.p1{background:#7c3aed}.p2{background:#14b8a6}.p3{background:#000}.l{position:absolute;top:2.5rem;left:6rem;z-index:50}.l img{height:95px;width:auto}.hn{position:absolute;top:3rem;right:2.5rem;z-index:50;display:flex;gap:2.5rem}.hl{font-family:'Inter',sans-serif;font-weight:500;font-size:.9rem;color:#F8FAFC;text-decoration:none;cursor:pointer;transition:opacity .3s ease;letter-spacing:1px;text-transform:uppercase}.hl:hover{opacity:.7}.hl.h{opacity:.3;pointer-events:none}.pc{width:55%;padding:4rem 6rem;color:#F8FAFC}.pi{margin-bottom:1.5rem}.p1 .pi{color:#F5B301}.p2 .pi{color:#FFF}.p3 .pi{color:#F5B301}.pt{font-family:'Poppins',sans-serif;font-weight:700;font-size:2.6rem;margin-bottom:1.2rem;letter-spacing:-1px;line-height:1.2}.pd{font-family:'Inter',sans-serif;font-weight:400;font-size:.9rem;line-height:1.7;opacity:.9;margin-bottom:.8rem}.ps{font-family:'Montserrat',sans-serif;font-weight:300;font-size:1.1rem;opacity:.9;font-style:italic;margin-bottom:1.2rem}.ct{margin-top:1.2rem;width:100%}.cr{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(248,250,252,.2);font-family:'Inter',sans-serif;font-size:.8rem}.cr:last-child{border-bottom:none}.wo{display:flex;gap:1rem;margin-top:1.5rem}.wb{font-family:'Inter',sans-serif;font-weight:500;font-size:.85rem;padding:.8rem 1.8rem;border:2px solid #F8FAFC;background:0 0;color:#F8FAFC;cursor:pointer;transition:all .3s ease;letter-spacing:1px;text-transform:uppercase}.wb:hover{background:#F8FAFC;color:#000}.wb.a{border-color:#F5B301;color:#F5B301}.wb.a:hover{background:#F5B301;color:#000}.wf{display:none;margin-top:1.5rem}.wf.ac{display:block}.fg{margin-bottom:1rem}.fg label{font-family:'Inter',sans-serif;font-size:.8rem;display:block;margin-bottom:.4rem;text-transform:uppercase;letter-spacing:1px;opacity:.8}.fg input,.fg select{width:100%;padding:.8rem;background:rgba(248,250,252,.1);border:1px solid rgba(248,250,252,.3);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.9rem;outline:0}.fg input:focus,.fg select:focus{border-color:#7C3AED}.fg select option{background:#121826;color:#F8FAFC}.sb{font-family:'Inter',sans-serif;font-weight:500;font-size:.85rem;padding:.8rem 1.8rem;background:#7C3AED;border:0;color:#F8FAFC;cursor:pointer;transition:all .3s ease;letter-spacing:1px;text-transform:uppercase;width:100%;position:relative;display:flex;align-items:center;justify-content:center;gap:.5rem}.sb:hover{background:#6d28d9}.sb.ld{pointer-events:none;opacity:.7}.sp{display:none;width:16px;height:16px;border:2px solid rgba(248,250,252,.3);border-top-color:#F8FAFC;border-radius:50%;animation:sp .6s linear infinite}.sb.ld .sp{display:inline-block}.sb.ld .bt{opacity:.5}@keyframes sp{to{transform:rotate(360deg)}}.ty{display:none;text-align:center;margin-top:1.5rem}.ty.ac{display:block}.ty .ci{color:#14b8a6;margin-bottom:1rem}.ty .mt{font-family:'Poppins',sans-serif;font-weight:600;font-size:1.3rem;margin-bottom:.5rem}.ty .ms{font-family:'Inter',sans-serif;font-size:.85rem;opacity:.7}.bb{font-family:'Inter',sans-serif;font-size:.8rem;color:#F8FAFC;cursor:pointer;opacity:.6;margin-bottom:1rem;display:inline-block}.bb:hover{opacity:1}.is{width:45%;height:100%;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}.ic{width:100%;height:100%;position:relative}.ic img{width:100%;height:100%;object-fit:cover}.ims{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.p1 .ims{background:linear-gradient(to right,#7c3aed 0,#7c3aed 15%,rgba(124,58,237,.95) 30%,rgba(124,58,237,.85) 45%,rgba(124,58,237,.65) 60%,rgba(124,58,237,.35) 75%,rgba(124,58,237,.1) 90%,rgba(124,58,237,0) 100%)}.p2 .ims{background:linear-gradient(to right,#14b8a6 0,#14b8a6 15%,rgba(20,184,166,.95) 30%,rgba(20,184,166,.85) 45%,rgba(20,184,166,.65) 60%,rgba(20,184,166,.35) 75%,rgba(20,184,166,.1) 90%,rgba(20,184,166,0) 100%)}.p3 .ims{background:linear-gradient(to right,#000 0,#000 15%,rgba(0,0,0,.95) 30%,rgba(0,0,0,.85) 45%,rgba(0,0,0,.65) 60%,rgba(0,0,0,.35) 75%,rgba(0,0,0,.1) 90%,rgba(0,0,0,0) 100%)}.ft{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);z-index:100;font-family:'Inter',sans-serif;font-size:.75rem;color:rgba(248,250,252,.5);text-align:center}.ft a{color:#7C3AED;text-decoration:none}.ft a:hover{text-decoration:underline}.nv{position:fixed;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 2rem;z-index:100;pointer-events:none}.na{font-size:6rem;color:#F8FAFC;cursor:pointer;pointer-events:auto;transition:all .3s ease;opacity:.7;text-shadow:0 0 30px rgba(0,0,0,.6);line-height:1;font-weight:300;user-select:none}.na:hover{opacity:1;transform:scale(1.3);text-shadow:0 0 50px rgba(0,0,0,.9)}.na:active{transform:scale(.9)}.esl,.esr{position:fixed;top:0;width:100px;height:100vh;pointer-events:none;z-index:99;opacity:0;transition:opacity .3s ease}.esl{left:0;background:linear-gradient(to right,rgba(0,0,0,.6) 0,rgba(0,0,0,0) 100%)}.esr{right:0;background:linear-gradient(to left,rgba(0,0,0,.6) 0,rgba(0,0,0,0) 100%)}.esl.vi,.esr.vi{opacity:1}.ni{position:fixed;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;gap:.8rem;z-index:100}.ind{width:36px;height:4px;border-radius:2px;background:rgba(248,250,252,.25);transition:all .3s ease;cursor:pointer}.ind.ac{background:#7C3AED;width:48px;box-shadow:0 0 14px rgba(124,58,237,.6)}.internal-links{position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none}.internal-links a{color:transparent;font-size:1px}@media(max-width:768px){body{overflow:auto;display:block}.c{display:none}.nv{display:none}.ni{display:none}.esl,.esr{display:none}.ft{display:none}.l{position:static;padding:1rem}.l img{height:50px}.hn{position:static;padding:0 1rem 1rem}.mobile-only{display:block;padding:2rem 1rem;color:#F8FAFC;text-align:center}.mobile-only h2{font-family:'Poppins',sans-serif;font-size:1.5rem;margin-bottom:1rem}.mobile-only p{font-family:'Inter',sans-serif;font-size:.9rem;margin-bottom:.8rem}.mobile-only .wb{margin:.5rem 0;display:block;width:100%}}</style>
-    <noscript><meta http-equiv="refresh" content="0;url=index2.html"></noscript>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#000;overflow-x:hidden;width:100vw}
+        .main-wrapper{display:flex;width:300vw;transition:transform .4s cubic-bezier(.4,0,.2,1);min-height:100vh}
+        .p{flex:0 0 100vw;position:relative}
+        .p1{background:#7c3aed;overflow-y:auto;height:100vh}
+        .p2{background:#14b8a6;overflow-y:auto;height:100vh}
+        .p3{background:#000;height:100vh;display:flex;align-items:center;overflow-y:auto}
+        .l{position:fixed;top:2rem;left:4rem;z-index:200}.l img{height:70px;width:auto}
+        .hn{position:fixed;top:2.5rem;right:4rem;z-index:200;display:flex;gap:2rem}
+        .hl{font-family:'Inter',sans-serif;font-weight:500;font-size:.85rem;color:#F8FAFC;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:opacity .3s ease}.hl:hover{opacity:.7}.hl.h{opacity:.3;pointer-events:none}
+        .sec{padding:5rem 4rem;color:#F8FAFC;position:relative}
+        .sec h2{font-family:'Poppins',sans-serif;font-weight:700;font-size:2.6rem;margin-bottom:1rem;letter-spacing:-1px;line-height:1.2}
+        .sec h3{font-family:'Poppins',sans-serif;font-weight:600;font-size:1.6rem;margin-bottom:.8rem}
+        .sec p,.sec .desc{font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.7;opacity:.9;margin-bottom:1rem}
+        .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;padding:2rem;position:relative;overflow:hidden}
+        .hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
+        .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(124,58,237,.7);z-index:1}
+        .hero-content{position:relative;z-index:2}
+        .hero h1{font-family:'Poppins',sans-serif;font-weight:700;font-size:4.5rem;letter-spacing:-2px;line-height:1.1;margin-bottom:1.5rem;position:relative;display:inline-block}
+        .hero h1::after{content:'';position:absolute;top:-10px;right:-30px;width:20px;height:20px;border-radius:50%;border:3px solid #F5B301;animation:eyePulse 2s ease-in-out infinite}
+        @keyframes eyePulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.5);opacity:1}}
+        .hero .sub{font-family:'Montserrat',sans-serif;font-weight:300;font-size:1.3rem;opacity:.9;font-style:italic;margin-bottom:2rem}
+        .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+        .btn{font-family:'Inter',sans-serif;font-weight:500;font-size:.9rem;padding:.9rem 2rem;border:2px solid #F8FAFC;background:0 0;color:#F8FAFC;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:all .3s ease}.btn:hover{background:#F8FAFC;color:#000}
+        .btn.gold{border-color:#F5B301;color:#F5B301}.btn.gold:hover{background:#F5B301;color:#000}
+        .btn.purple{background:#7C3AED;border-color:#7C3AED;color:#F8FAFC}.btn.purple:hover{background:#6d28d9;border-color:#6d28d9}
+        .counter-row{display:flex;gap:3rem;margin-top:2rem;flex-wrap:wrap;justify-content:center}
+        .counter-item{text-align:center}.counter-item .num{font-family:'Poppins',sans-serif;font-weight:700;font-size:2.5rem;color:#F5B301}.counter-item .lbl{font-family:'Inter',sans-serif;font-size:.8rem;opacity:.7;text-transform:uppercase;letter-spacing:1px}
+        .card-row{display:flex;gap:1.5rem;margin-top:2rem;flex-wrap:wrap}
+        .card{flex:1;min-width:250px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:2rem}
+        .card .ci{color:#F5B301;margin-bottom:1rem;animation:floatIcon 3s ease-in-out infinite}
+        @keyframes floatIcon{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+        .card h4{font-family:'Poppins',sans-serif;font-weight:600;font-size:1.2rem;margin-bottom:.5rem}
+        .card p{font-family:'Inter',sans-serif;font-size:.85rem;opacity:.8;line-height:1.6}
+        .mockup-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:3rem;text-align:center;margin-top:2rem}
+        .mockup-box .grid{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin-top:2rem}
+        .mockup-box .grid-item{text-align:center;flex:1;min-width:120px}.mockup-box .grid-item .icn{color:#F5B301;margin-bottom:.5rem;animation:pulseIcon 2.5s ease-in-out infinite}
+        @keyframes pulseIcon{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+        .map-grid{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+        .map-card{flex:1;min-width:160px;background:rgba(255,255,255,.05);padding:2rem 1.5rem;text-align:center;border:1px solid rgba(255,255,255,.08);transition:transform .3s ease}.map-card:hover{transform:translateY(-5px)}
+        .map-card .fi{font-size:3rem;margin-bottom:.8rem;display:block;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+        .map-card .country{font-family:'Poppins',sans-serif;font-weight:600;font-size:1rem;margin-top:.5rem}.map-card .genre{font-family:'Inter',sans-serif;font-size:.75rem;opacity:.7;margin-top:.3rem}
+        .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);z-index:999;align-items:center;justify-content:center}
+        .modal-overlay.ac{display:flex}
+        .modal-box{background:#121826;border:1px solid rgba(255,255,255,.15);padding:2.5rem;text-align:center;max-width:420px;width:90%;color:#F8FAFC;position:relative}
+        .modal-box h4{font-family:'Poppins',sans-serif;font-size:1.3rem;margin-bottom:1rem}
+        .modal-box .phone-num{font-family:'Inter',sans-serif;font-weight:600;font-size:1.8rem;color:#F5B301;margin:1rem 0;letter-spacing:2px}
+        .modal-box .platforms{display:flex;gap:1rem;justify-content:center;margin-top:1.5rem}
+        .modal-box .plat-btn{font-family:'Inter',sans-serif;font-size:.8rem;padding:.6rem 1.2rem;border:1px solid rgba(255,255,255,.3);background:0 0;color:#F8FAFC;cursor:pointer;transition:all .3s ease;text-decoration:none}.modal-box .plat-btn:hover{background:#7C3AED;border-color:#7C3AED}
+        .modal-close{position:absolute;top:1rem;right:1rem;background:0 0;border:0;color:#F8FAFC;cursor:pointer;font-size:1.5rem}
+        .comparison-section{margin-top:3rem}
+        .comp-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-family:'Inter',sans-serif;font-size:.8rem}
+        .comp-table th,.comp-table td{padding:.8rem;text-align:left;border-bottom:1px solid rgba(255,255,255,.1)}
+        .comp-table th{font-weight:600;text-transform:uppercase;letter-spacing:1px;font-size:.7rem;opacity:.7}
+        .comp-table .check-y{color:#14b8a6;font-weight:700}.comp-table .check-n{color:rgba(255,255,255,.3)}
+        .comp-table .highlight{background:rgba(124,58,237,.15)}
+        .notif-box{position:fixed;top:2rem;right:2rem;z-index:9999;display:flex;flex-direction:column;gap:.5rem;pointer-events:none}
+        .notif-item{background:#121826;border:1px solid rgba(255,255,255,.15);padding:1rem 1.5rem;color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;display:flex;align-items:center;gap:.8rem;pointer-events:auto;animation:slideIn .4s ease-out;box-shadow:0 8px 24px rgba(0,0,0,.5)}.notif-item.success{border-left:3px solid #14b8a6}.notif-item.error{border-left:3px solid #ef4444}
+        @keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+        .notif-item .close-notif{background:0 0;border:0;color:rgba(255,255,255,.5);cursor:pointer;font-size:1rem;margin-left:auto}
+        .ft{background:#000;text-align:center;padding:2.5rem;font-family:'Inter',sans-serif;font-size:.75rem;color:rgba(248,250,252,.5);border-top:1px solid rgba(255,255,255,.06)}.ft a{color:#7C3AED;text-decoration:none}.ft .ft-grid{display:flex;gap:3rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.5rem}.ft .ft-col{text-align:left}.ft .ft-col h5{font-family:'Poppins',sans-serif;font-size:.8rem;margin-bottom:.6rem;color:#F8FAFC}.ft .ft-col a{display:block;font-size:.7rem;margin-bottom:.3rem;opacity:.6;transition:opacity .3s ease}.ft .ft-col a:hover{opacity:1}
+        .nv{position:fixed;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 1.5rem;z-index:200;pointer-events:none}
+        .na{font-size:5rem;color:#F8FAFC;cursor:pointer;pointer-events:auto;opacity:.6;text-shadow:0 0 30px rgba(0,0,0,.5);line-height:1;font-weight:300;user-select:none;transition:all .3s ease}.na:hover{opacity:1;transform:scale(1.2)}
+        .ni{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:.6rem;z-index:200}
+        .ind{width:28px;height:3px;border-radius:2px;background:rgba(248,250,252,.25);transition:all .3s ease;cursor:pointer}.ind.ac{background:#7C3AED;width:40px;box-shadow:0 0 10px rgba(124,58,237,.5)}
+        .il{position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none}.il a{color:transparent;font-size:1px}
+        @media(max-width:768px){body{overflow:auto}.main-wrapper,.nv,.ni{display:none}.l{position:static;padding:1rem}.l img{height:45px}.hn{position:static;padding:0 1rem 1rem}.hero h1{font-size:2.5rem}.sec{padding:3rem 1.5rem}.sec h2{font-size:2rem}.card-row{flex-direction:column}}
+    </style>
 </head>
 <body>
-    <div class="internal-links" aria-hidden="true">
-        <a href="/">Home</a>
-        <a href="/music">Music</a>
-        <a href="/join">Join Waitlist</a>
-        <a href="/about">About Djembay</a>
-        <a href="/artists">For Artists</a>
-        <a href="/listeners">For Listeners</a>
+    <div class="il" aria-hidden="true"><a href="/">Home</a><a href="/music">Music</a><a href="/join">Join</a><a href="/about">About</a><a href="/artists">Artists</a><a href="/listeners">Listeners</a><a href="/contact">Contact</a></div>
+    <div class="l"><img src="Assets/Images/logo.png" alt="Djembay Logo"></div>
+    <div class="hn"><span class="hl h" data-page="0">Home</span><span class="hl" data-page="1">Music</span><span class="hl" data-page="2">Join</span></div>
+    <div class="notif-box" id="notifBox"></div>
+    <div class="main-wrapper" id="pC">
+        <!-- Page 1: Home -->
+        <div class="p p1">
+            <section class="hero">
+                <video class="hero-video" autoplay muted loop playsinline><source src="Assets/Videos/hero.mp4" type="video/mp4"></video>
+                <div class="hero-overlay"></div>
+                <div class="hero-content"><h1>The Home of African Music</h1><p class="sub">Discover, stream, and support the sounds shaping Africa's future.</p><div class="hero-btns"><button class="btn gold" id="heroWaitlistBtn">Join the Waitlist</button><button class="btn" id="heroArtistsBtn">For Artists</button></div><div class="counter-row"><div class="counter-item"><div class="num">10K+</div><div class="lbl">Songs Coming Soon</div></div><div class="counter-item"><div class="num">15</div><div class="lbl">Countries Represented</div></div><div class="counter-item"><div class="num">500+</div><div class="lbl">Artists Interested</div></div></div></div>
+            </section>
+            <section class="sec"><h2>African Music Deserves Better</h2><div class="card-row"><div class="card"><div class="ci"><i data-lucide="mic-2" style="width:36px;height:36px"></i></div><h4>Artists</h4><p>Great music often struggles to reach global audiences. Djembay gives African artists the platform they deserve with fair royalties up to 80%.</p></div><div class="card"><div class="ci"><i data-lucide="headphones" style="width:36px;height:36px"></i></div><h4>Listeners</h4><p>Discovering authentic African music is fragmented across platforms. We unify it in one powerful, data-friendly experience.</p></div><div class="card"><div class="ci"><i data-lucide="building-2" style="width:36px;height:36px"></i></div><h4>Industry</h4><p>African talent lacks dedicated digital infrastructure. Djembay is building it from the ground up, focused on the continent.</p></div></div></section>
+            <section class="sec"><h2>Imagine Spotify Built For Africa</h2><div class="mockup-box"><p class="desc">A streaming experience designed from scratch for African music culture — not adapted from elsewhere.</p><div class="grid"><div class="grid-item"><div class="icn"><i data-lucide="globe" style="width:32px;height:32px"></i></div><p>African-first discovery</p></div><div class="grid-item"><div class="icn"><i data-lucide="bar-chart-2" style="width:32px;height:32px"></i></div><p>Country charts</p></div><div class="grid-item"><div class="icn"><i data-lucide="users" style="width:32px;height:32px"></i></div><p>Artist empowerment</p></div><div class="grid-item"><div class="icn"><i data-lucide="download" style="width:32px;height:32px"></i></div><p>Device file downloads</p></div><div class="grid-item"><div class="icn"><i data-lucide="smartphone" style="width:32px;height:32px"></i></div><p>Offline listening</p></div></div></div></section>
+            <section class="sec"><h2>Explore Africa Through Music</h2><div class="map-grid"><div class="map-card"><span class="fi fi-rw"></span><div class="country">Rwanda</div><div class="genre">Afro-fusion · R&B</div></div><div class="map-card"><span class="fi fi-ng"></span><div class="country">Nigeria</div><div class="genre">Afrobeats · Highlife</div></div><div class="map-card"><span class="fi fi-ke"></span><div class="country">Kenya</div><div class="genre">Genge · Bongo Flava</div></div><div class="map-card"><span class="fi fi-gh"></span><div class="country">Ghana</div><div class="genre">Highlife · Afro-dance</div></div><div class="map-card"><span class="fi fi-za"></span><div class="country">South Africa</div><div class="genre">Amapiano · Afro-house</div></div></div></section>
+            <section class="sec"><h2>Become a Founding Member</h2><div class="card-row"><div class="card"><h4>Founding Listener</h4><p>Early access, exclusive playlists, and a founder badge that shows you were here from the start.</p></div><div class="card"><h4>Founding Artist</h4><p>Verified founder profile, priority onboarding, and early promotion opportunities across the platform.</p></div><div class="card"><h4>Founding Partner</h4><p>Shape the future roadmap and get direct feedback access to the Djembay team.</p></div></div></section>
+            <section class="sec"><h2>We're Building The Future Of African Music</h2><p class="desc">Djembay is looking for passionate builders, artists, designers, developers, marketers, and supporters who believe in the future of African music.</p><div class="hero-btns" style="justify-content:flex-start;margin-top:1.5rem"><button class="btn gold modal-trigger">Become a Partner</button><button class="btn modal-trigger">Join the Team</button><button class="btn modal-trigger">Contact Us</button></div></section>
+        </div>
+        <!-- Page 2: Music / Compare -->
+        <div class="p p2">
+            <div class="sec"><h2>Built for Artists & Listeners</h2><p class="desc" style="font-family:'Montserrat',sans-serif;font-style:italic">More than streaming — a fair ecosystem for everyone</p><p class="desc"><strong>For Artists:</strong> Keep up to 80% of your royalties. Upload your music, build your audience, and track your growth with real-time analytics.</p><p class="desc"><strong>For Listeners:</strong> Discover curated African playlists, download songs to your device for true offline listening, and enjoy high-quality audio optimized for low data environments.</p></div>
+            <div class="sec comparison-section"><h2>How Djembay Compares</h2><p class="desc">See why Djembay is different from other streaming platforms.</p><table class="comp-table"><thead><tr><th>Feature</th><th>Djembay</th><th>Spotify</th><th>Apple Music</th><th>Boomplay</th></tr></thead><tbody><tr class="highlight"><td>Focused on Africa</td><td class="check-y">✓</td><td class="check-n">✗</td><td class="check-n">✗</td><td class="check-y">✓</td></tr><tr><td>Artist Royalties</td><td class="check-y">Up to 80%</td><td class="check-n">~15-30%</td><td class="check-n">~20%</td><td class="check-n">~30%</td></tr><tr class="highlight"><td>Device File Downloads</td><td class="check-y">✓</td><td class="check-n">✗</td><td class="check-n">✗</td><td class="check-n">✗</td></tr><tr><td>Offline Mode</td><td class="check-y">Optimized</td><td class="check-y">✓</td><td class="check-y">✓</td><td class="check-y">✓</td></tr><tr class="highlight"><td>Data Saver Mode</td><td class="check-y">Ultra-low</td><td class="check-y">✓</td><td class="check-n">✗</td><td class="check-y">✓</td></tr><tr><td>African Content Priority</td><td class="check-y">Curated</td><td class="check-n">Limited</td><td class="check-n">Limited</td><td class="check-y">✓</td></tr><tr class="highlight"><td>Artist Analytics</td><td class="check-y">Real-time</td><td class="check-y">✓</td><td class="check-y">✓</td><td class="check-n">Basic</td></tr><tr><td>Low Data Streaming</td><td class="check-y">64kbps mode</td><td class="check-n">24kbps only</td><td class="check-n">✗</td><td class="check-n">✗</td></tr></tbody></table></div>
+        </div>
+        <!-- Page 3: Join Waitlist -->
+        <div class="p p3">
+            <div class="sec" style="width:100%" id="jC"><div id="jDC"><h2 id="jT">Join the Djembay Waitlist</h2><p class="desc" id="jS" style="font-family:'Montserrat',sans-serif;font-style:italic">Be the first to experience African music streaming redefined</p><p class="desc" id="jD">Launching soon with limited spots. Whether you're an artist ready to share your sound or a listener hungry for the best African music — sign up now for early access.</p><div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap" id="wO"><button class="btn gold" id="lB">Join as Listener</button><button class="btn" id="aB" style="border-color:#F5B301;color:#F5B301">Join as Artist</button></div></div><div id="lF" style="display:none;margin-top:1.5rem"><span class="hl" id="bFL" style="cursor:pointer;margin-bottom:1rem;display:inline-block">← Back</span><form id="lFE"><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Name</label><input type="text" name="name" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Gender</label><select name="gender" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Age</label><input type="number" name="age" required min="13" style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Country</label><select name="country" id="lC" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"><option value="">Select Country</option><option value="Rwanda">Rwanda</option><option value="Uganda">Uganda</option><option value="Tanzania">Tanzania</option><option value="South Africa">South Africa</option><option value="Nigeria">Nigeria</option><option value="Custom">Custom</option></select></div><div style="margin-bottom:.8rem;display:none" id="lCC"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Your Country</label><input type="text" name="customCountry" style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Phone Number</label><input type="tel" name="phone" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><button type="submit" class="btn gold" id="lSB" style="width:100%;position:relative"><span class="bt">Join Waitlist</span><span class="sp" style="display:none;width:16px;height:16px;border:2px solid rgba(248,250,252,.3);border-top-color:#F8FAFC;border-radius:50%;animation:spin .6s linear infinite;margin-left:.5rem"></span></button></form></div><div id="aF" style="display:none;margin-top:1.5rem"><span class="hl" id="bFA" style="cursor:pointer;margin-bottom:1rem;display:inline-block">← Back</span><form id="aFE"><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Name</label><input type="text" name="name" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Gender</label><select name="gender" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Age</label><input type="number" name="age" required min="13" style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Social Link (Instagram)</label><input type="url" name="socialLink" required placeholder="https://instagram.com/..." style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Country</label><select name="country" id="aC" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"><option value="">Select Country</option><option value="Rwanda">Rwanda</option><option value="Uganda">Uganda</option><option value="Tanzania">Tanzania</option><option value="South Africa">South Africa</option><option value="Nigeria">Nigeria</option><option value="Custom">Custom</option></select></div><div style="margin-bottom:.8rem;display:none" id="aCC"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Your Country</label><input type="text" name="customCountry" style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Phone Number</label><input type="tel" name="phone" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><button type="submit" class="btn gold" id="aSB" style="width:100%;position:relative"><span class="bt">Join as Artist</span><span class="sp" style="display:none;width:16px;height:16px;border:2px solid rgba(248,250,252,.3);border-top-color:#F8FAFC;border-radius:50%;animation:spin .6s linear infinite;margin-left:.5rem"></span></button></form></div></div>
+        </div>
     </div>
-    <div class="esl" id="eSL"></div><div class="esr" id="eSR"></div>
-    <div class="c" id="pC">
-        <div class="p p1"><div class="l"><img src="Assets/Images/logo.png" alt="Djembay Logo"></div><div class="hn"><span class="hl h" data-page="0">Home</span><span class="hl" data-page="1">Music</span><span class="hl" data-page="2">Join</span></div><div class="pc"><div class="pi"><i data-lucide="radio" style="width:48px;height:48px"></i></div><p class="pt">Discover African Music Streaming</p><p class="ps">Djembay launches soon — a streaming revolution built for Africa</p><p class="pd">Djembay is a premium African music streaming platform designed to amplify African voices, connect artists directly to fans, and deliver the rhythms of the continent to the world. Built for low data environments with offline listening at its core.</p><p class="pd">From Afrobeats to Amapiano, Highlife to Bongo Flava — stream every African sound in one powerful experience. Join the waitlist today.</p></div><div class="is"><div class="ic"><img src="Assets/Images/page1.png" alt="African music discovery on Djembay" onerror="this.style.display='none'"><div class="ims"></div></div></div></div>
-        <div class="p p2"><div class="l"><img src="Assets/Images/logo.png" alt="Djembay Logo"></div><div class="hn"><span class="hl" data-page="0">Home</span><span class="hl h" data-page="1">Music</span><span class="hl" data-page="2">Join</span></div><div class="pc"><div class="pi"><i data-lucide="zap" style="width:48px;height:48px"></i></div><p class="pt">Built for Artists and Listeners</p><p class="ps">More than streaming — a fair ecosystem for everyone</p><p class="pd"><strong>For Artists:</strong> Keep up to 80% of your royalties. Get real-time analytics, direct fan connections, and promotional tools to grow your audience across Africa and beyond.</p><p class="pd"><strong>For Listeners:</strong> Discover curated African playlists, offline listening optimized for low data, and high-quality audio that doesn't drain your bundle.</p><div class="ct"><div class="cr"><span>Artist Royalties</span><span>Up to 80%</span><span>~15-30%</span></div><div class="cr"><span>Offline Mode</span><span>Optimized for Africa</span><span>Standard</span></div><div class="cr"><span>Data Usage</span><span>Ultra-low mode</span><span>High</span></div><div class="cr"><span>African Content</span><span>Curated & prioritized</span><span>Limited</span></div><div class="cr"><span>Artist Support</span><span>Direct tools & analytics</span><span>Minimal</span></div></div></div><div class="is"><div class="ic"><img src="Assets/Images/page2.png" alt="Djembay artist and listener features" onerror="this.style.display='none'"><div class="ims"></div></div></div></div>
-        <div class="p p3"><div class="l"><img src="Assets/Images/logo.png" alt="Djembay Logo"></div><div class="hn"><span class="hl" data-page="0">Home</span><span class="hl" data-page="1">Music</span><span class="hl h" data-page="2">Join</span></div><div class="pc" id="jC"><div id="jDC"><div class="pi" id="jI"><i data-lucide="user-plus" style="width:48px;height:48px"></i></div><p class="pt" id="jT">Join the Djembay Waitlist</p><p class="ps" id="jS">Be the first to experience African music streaming redefined</p><p class="pd" id="jD">Launching soon with limited spots. Whether you're an artist ready to share your sound or a listener hungry for the best African music — sign up now for early access.</p><div class="wo" id="wO"><button class="wb" id="lB">Join as Listener</button><button class="wb a" id="aB">Join as Artist</button></div></div><div class="wf" id="lF"><span class="bb" id="bFL">← Back</span><form id="lFE"><div class="fg"><label>Name</label><input type="text" name="name" required></div><div class="fg"><label>Gender</label><select name="gender" required><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div><div class="fg"><label>Age</label><input type="number" name="age" required min="13"></div><div class="fg"><label>Country</label><select name="country" id="lC" required><option value="">Select Country</option><option value="Rwanda">Rwanda</option><option value="Uganda">Uganda</option><option value="Tanzania">Tanzania</option><option value="South Africa">South Africa</option><option value="Nigeria">Nigeria</option><option value="Custom">Custom</option></select></div><div class="fg" id="lCC" style="display:none"><label>Your Country</label><input type="text" name="customCountry"></div><div class="fg"><label>Phone Number</label><input type="tel" name="phone" required></div><button type="submit" class="sb" id="lSB"><span class="bt">Join Waitlist</span><span class="sp"></span></button></form><div class="ty" id="lTY"><div class="ci"><i data-lucide="check-circle" style="width:48px;height:48px"></i></div><div class="mt">Thank You!</div><div class="ms">You're on the list. We'll notify you when Djembay launches.</div></div></div><div class="wf" id="aF"><span class="bb" id="bFA">← Back</span><form id="aFE"><div class="fg"><label>Name</label><input type="text" name="name" required></div><div class="fg"><label>Gender</label><select name="gender" required><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div><div class="fg"><label>Age</label><input type="number" name="age" required min="13"></div><div class="fg"><label>Social Link (Instagram)</label><input type="url" name="socialLink" required placeholder="https://instagram.com/..."></div><div class="fg"><label>Country</label><select name="country" id="aC" required><option value="">Select Country</option><option value="Rwanda">Rwanda</option><option value="Uganda">Uganda</option><option value="Tanzania">Tanzania</option><option value="South Africa">South Africa</option><option value="Nigeria">Nigeria</option><option value="Custom">Custom</option></select></div><div class="fg" id="aCC" style="display:none"><label>Your Country</label><input type="text" name="customCountry"></div><div class="fg"><label>Phone Number</label><input type="tel" name="phone" required></div><button type="submit" class="sb" id="aSB"><span class="bt">Join as Artist</span><span class="sp"></span></button></form><div class="ty" id="aTY"><div class="ci"><i data-lucide="check-circle" style="width:48px;height:48px"></i></div><div class="mt">Thank You, Artist!</div><div class="ms">We'll review your profile and get back to you soon.</div></div></div></div><div class="is"><div class="ic"><img src="Assets/Images/page3.png" alt="Join Djembay waitlist" onerror="this.style.display='none'"><div class="ims"></div></div></div></div>
-    </div>
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay"><div class="modal-box"><button class="modal-close" id="modalClose">×</button><h4>Let's Talk</h4><p class="desc">Reach out on Telegram or WhatsApp</p><div class="phone-num">+250 795 065 789</div><p class="desc" style="font-size:.8rem;opacity:.6">Available for serious inquiries about partnerships, team roles, and collaborations.</p><div class="platforms"><a href="https://t.me/+250795065789" target="_blank" class="plat-btn">Telegram</a><a href="https://wa.me/250795065789" target="_blank" class="plat-btn">WhatsApp</a></div></div></div>
+    <!-- Navigation arrows -->
     <div class="nv"><span class="na" id="pB" aria-label="Previous page">‹</span><span class="na" id="nB" aria-label="Next page">›</span></div>
     <div class="ni"><div class="ind ac" data-index="0"></div><div class="ind" data-index="1"></div><div class="ind" data-index="2"></div></div>
-    <div class="ft">Created by <a href="https://pireactive.vercel.app/" target="_blank" rel="noopener">PIReactive</a></div>
-    <div class="mobile-only" style="display:none">
-        <div class="l"><img src="Assets/Images/logo.png" alt="Djembay"></div>
-        <h2>Djembay - African Music Streaming</h2>
-        <p>Premium African music platform for artists and listeners. Join the waitlist now.</p>
-        <a href="index2.html" class="wb">Open Mobile Version</a>
-    </div>
-    <script>if(window.innerWidth<=768){window.location.href='index2.html';}</script>
-    <script type="module">import{saveToFirebase}from'./js/firebase-config.js';const pC=document.getElementById('pC'),ind=document.querySelectorAll('.ind'),pB=document.getElementById('pB'),nB=document.getElementById('nB'),eSL=document.getElementById('eSL'),eSR=document.getElementById('eSR');let cP=0;const tP=3;function uHL(x){document.querySelectorAll('.hl').forEach(l=>{l.classList.toggle('h',parseInt(l.getAttribute('data-page'))===x)})}function uUI(x){pC.style.transform=`translateX(-${x*100}vw)`;ind.forEach(i=>i.classList.remove('ac'));const a=document.querySelector(`.ind[data-index="${x}"]`);if(a)a.classList.add('ac');pB.style.opacity=x===0?'0.15':'1';pB.style.pointerEvents=x===0?'none':'auto';nB.style.opacity=x===tP-1?'0.15':'1';nB.style.pointerEvents=x===tP-1?'none':'auto';uHL(x)}function nT(x){if(x>=0&&x<tP&&x!==cP){cP=x;uUI(cP)}}document.querySelectorAll('.hl').forEach(l=>{l.addEventListener('click',()=>nT(parseInt(l.getAttribute('data-page'))))});ind.forEach(i=>{i.addEventListener('click',()=>nT(parseInt(i.getAttribute('data-index'))))});pB.addEventListener('click',()=>nT(cP-1));nB.addEventListener('click',()=>nT(cP+1));document.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')nT(cP-1);if(e.key==='ArrowRight')nT(cP+1)});document.addEventListener('mousemove',function(e){const t=120;eSL.classList.toggle('vi',e.clientX<t);eSR.classList.toggle('vi',e.clientX>window.innerWidth-t)});function hJC(){['jI','jT','jS','jD'].forEach(id=>{document.getElementById(id).style.display='none'});document.getElementById('wO').style.display='none'}function sJC(){['jI','jT','jS','jD'].forEach(id=>{document.getElementById(id).style.display='block'});document.getElementById('wO').style.display='flex'}function sTY(fId,tId){const f=document.getElementById(fId),fe=f.querySelector('form'),ty=document.getElementById(tId);fe.style.display='none';f.querySelector('.bb').style.display='none';ty.classList.add('ac');setTimeout(()=>{ty.classList.remove('ac');fe.style.display='block';f.querySelector('.bb').style.display='inline-block';fe.reset();f.classList.remove('ac');sJC()},3000)}async function hS(e,fId,tId,sId){e.preventDefault();const b=document.getElementById(sId),fe=e.target;b.classList.add('ld');const fd=new FormData(fe),tp=fId==='lF'?'listener':'artist',d={type:tp,name:fd.get('name'),gender:fd.get('gender'),age:fd.get('age'),country:fd.get('country')==='Custom'?fd.get('customCountry'):fd.get('country'),phone:fd.get('phone'),timestamp:new Date().toISOString()};if(tp==='artist')d.socialLink=fd.get('socialLink');try{await saveToFirebase(d);b.classList.remove('ld');sTY(fId,tId)}catch(er){b.classList.remove('ld')}}document.getElementById('lB').addEventListener('click',()=>{hJC();document.getElementById('lF').classList.add('ac')});document.getElementById('aB').addEventListener('click',()=>{hJC();document.getElementById('aF').classList.add('ac')});document.getElementById('bFL').addEventListener('click',()=>{document.getElementById('lF').classList.remove('ac');document.getElementById('lFE').reset();sJC()});document.getElementById('bFA').addEventListener('click',()=>{document.getElementById('aF').classList.remove('ac');document.getElementById('aFE').reset();sJC()});document.getElementById('lC').addEventListener('change',function(){document.getElementById('lCC').style.display=this.value==='Custom'?'block':'none'});document.getElementById('aC').addEventListener('change',function(){document.getElementById('aCC').style.display=this.value==='Custom'?'block':'none'});document.getElementById('lFE').addEventListener('submit',function(e){hS(e,'lF','lTY','lSB')});document.getElementById('aFE').addEventListener('submit',function(e){hS(e,'aF','aTY','aSB')});lucide.createIcons();uUI(0)</script>
+    <!-- Footer -->
+    <footer class="ft"><div class="ft-grid"><div class="ft-col"><h5>Djembay</h5><a href="#">About</a><a href="#">Careers</a><a href="#">Press</a></div><div class="ft-col"><h5>Platform</h5><a href="#">For Artists</a><a href="#">For Listeners</a><a href="#">Pricing</a></div><div class="ft-col"><h5>Support</h5><a href="#">Help Center</a><a href="#">Contact</a><a href="#">Privacy Policy</a></div><div class="ft-col"><h5>Connect</h5><a href="#">Twitter</a><a href="#">Instagram</a><a href="#">LinkedIn</a></div></div><p>&copy; 2026 Djembay. Built for Africa. Created by <a href="https://pireactive.vercel.app/" target="_blank" rel="noopener">PIReactive</a></p></footer>
+    <!-- Mobile redirect -->
+    <script>if(window.innerWidth<=768){window.location.href='index2.html'}</script>
+    <!-- Firebase integration module -->
+    <script type="module">
+        import { saveToFirebase } from './js/firebase-config.js';
+
+        // ----- GLOBAL NAVIGATION STATE (module-scoped) -----
+        let currentPage = 0;
+        const totalPages = 3;
+        const wrapper = document.getElementById('pC');
+
+        // Update header link active states
+        function updateHeaderLinks(index) {
+            document.querySelectorAll('.hl').forEach(link => {
+                const page = parseInt(link.getAttribute('data-page'));
+                link.classList.toggle('h', page === index);
+            });
+        }
+
+        // Update UI indicators, arrows, header links
+        function updateUI(index) {
+            wrapper.style.transform = `translateX(-${index * 100}vw)`;
+            document.querySelectorAll('.ind').forEach(ind => ind.classList.remove('ac'));
+            const activeInd = document.querySelector(`.ind[data-index="${index}"]`);
+            if (activeInd) activeInd.classList.add('ac');
+
+            const prevBtn = document.getElementById('pB');
+            const nextBtn = document.getElementById('nB');
+            prevBtn.style.opacity = index === 0 ? '0.15' : '1';
+            prevBtn.style.pointerEvents = index === 0 ? 'none' : 'auto';
+            nextBtn.style.opacity = index === totalPages - 1 ? '0.15' : '1';
+            nextBtn.style.pointerEvents = index === totalPages - 1 ? 'none' : 'auto';
+
+            updateHeaderLinks(index);
+        }
+
+        // Navigate to a specific page index
+        function navigateTo(index) {
+            if (index >= 0 && index < totalPages && index !== currentPage) {
+                currentPage = index;
+                updateUI(currentPage);
+            }
+        }
+
+        // ----- ATTACH EVENT LISTENERS (no inline handlers) -----
+        // Header links
+        document.querySelectorAll('.hl').forEach(link => {
+            link.addEventListener('click', () => {
+                const page = parseInt(link.getAttribute('data-page'));
+                navigateTo(page);
+            });
+        });
+
+        // Indicator dots
+        document.querySelectorAll('.ind').forEach(ind => {
+            ind.addEventListener('click', () => {
+                const page = parseInt(ind.getAttribute('data-index'));
+                navigateTo(page);
+            });
+        });
+
+        // Arrow buttons
+        document.getElementById('pB').addEventListener('click', () => navigateTo(currentPage - 1));
+        document.getElementById('nB').addEventListener('click', () => navigateTo(currentPage + 1));
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') navigateTo(currentPage - 1);
+            if (e.key === 'ArrowRight') navigateTo(currentPage + 1);
+        });
+
+        // Hero buttons: Join Waitlist -> page 3, For Artists -> page 3 (or could be same)
+        document.getElementById('heroWaitlistBtn').addEventListener('click', () => navigateTo(2));
+        document.getElementById('heroArtistsBtn').addEventListener('click', () => navigateTo(2));
+
+        // ----- MODAL LOGIC -----
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        // All modal-trigger buttons (Become a Partner, Join the Team, Contact Us)
+        document.querySelectorAll('.modal-trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                modalOverlay.classList.add('ac');
+            });
+        });
+        modalClose.addEventListener('click', () => modalOverlay.classList.remove('ac'));
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) modalOverlay.classList.remove('ac');
+        });
+
+        // ----- CUSTOM NOTIFICATION SYSTEM -----
+        function showNotification(message, type = 'success') {
+            const box = document.getElementById('notifBox');
+            const el = document.createElement('div');
+            el.className = `notif-item ${type}`;
+            el.innerHTML = `${message}<button class="close-notif">×</button>`;
+            box.appendChild(el);
+            el.querySelector('.close-notif').addEventListener('click', () => el.remove());
+            setTimeout(() => { if (el.parentNode) el.remove(); }, 4000);
+        }
+
+        // ----- WAITLIST FORM LOGIC -----
+        function hideJoinDefault() {
+            ['jT','jS','jD'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+            document.getElementById('wO').style.display = 'none';
+        }
+
+        function showJoinDefault() {
+            ['jT','jS','jD'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'block';
+            });
+            document.getElementById('wO').style.display = 'flex';
+        }
+
+        function showThankYouAndReset(formId) {
+            const formContainer = document.getElementById(formId);
+            const form = formContainer.querySelector('form');
+            const backBtn = formContainer.querySelector('.hl');
+            form.style.display = 'none';
+            if (backBtn) backBtn.style.display = 'none';
+            showNotification('✓ Successfully submitted! We will be in touch.', 'success');
+            setTimeout(() => {
+                form.style.display = 'block';
+                if (backBtn) backBtn.style.display = 'inline-block';
+                form.reset();
+                formContainer.style.display = 'none';
+                showJoinDefault();
+            }, 3000);
+        }
+
+        async function handleSubmit(e, formId, submitBtnId) {
+            e.preventDefault();
+            const submitBtn = document.getElementById(submitBtnId);
+            const form = e.target;
+            submitBtn.classList.add('ld');
+            submitBtn.querySelector('.bt').style.opacity = '0.5';
+            submitBtn.querySelector('.sp').style.display = 'inline-block';
+
+            const formData = new FormData(form);
+            const type = formId === 'lF' ? 'listener' : 'artist';
+            const data = {
+                type,
+                name: formData.get('name'),
+                gender: formData.get('gender'),
+                age: formData.get('age'),
+                country: formData.get('country') === 'Custom' ? formData.get('customCountry') : formData.get('country'),
+                phone: formData.get('phone'),
+                timestamp: new Date().toISOString()
+            };
+            if (type === 'artist') data.socialLink = formData.get('socialLink');
+
+            try {
+                await saveToFirebase(data);
+                submitBtn.classList.remove('ld');
+                submitBtn.querySelector('.bt').style.opacity = '1';
+                submitBtn.querySelector('.sp').style.display = 'none';
+                showThankYouAndReset(formId);
+            } catch (error) {
+                submitBtn.classList.remove('ld');
+                submitBtn.querySelector('.bt').style.opacity = '1';
+                submitBtn.querySelector('.sp').style.display = 'none';
+                showNotification('⚠ Network error. Please try again.', 'error');
+            }
+        }
+
+        // Listener / Artist buttons
+        document.getElementById('lB').addEventListener('click', () => {
+            hideJoinDefault();
+            document.getElementById('lF').style.display = 'block';
+        });
+        document.getElementById('aB').addEventListener('click', () => {
+            hideJoinDefault();
+            document.getElementById('aF').style.display = 'block';
+        });
+
+        // Back buttons
+        document.getElementById('bFL').addEventListener('click', () => {
+            document.getElementById('lFE').reset();
+            document.getElementById('lF').style.display = 'none';
+            showJoinDefault();
+        });
+        document.getElementById('bFA').addEventListener('click', () => {
+            document.getElementById('aFE').reset();
+            document.getElementById('aF').style.display = 'none';
+            showJoinDefault();
+        });
+
+        // Custom country toggles
+        document.getElementById('lC').addEventListener('change', function() {
+            document.getElementById('lCC').style.display = this.value === 'Custom' ? 'block' : 'none';
+        });
+        document.getElementById('aC').addEventListener('change', function() {
+            document.getElementById('aCC').style.display = this.value === 'Custom' ? 'block' : 'none';
+        });
+
+        // Form submissions
+        document.getElementById('lFE').addEventListener('submit', (e) => handleSubmit(e, 'lF', 'lSB'));
+        document.getElementById('aFE').addEventListener('submit', (e) => handleSubmit(e, 'aF', 'aSB'));
+
+        // Initialize Lucide icons and UI
+        lucide.createIcons();
+        updateUI(0);
+    </script>
 </body>
 </html>
