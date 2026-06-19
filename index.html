@@ -503,7 +503,7 @@
             </div>
             <div class="image-side">
                 <div class="image-container">
-                    <img src="Assets/Images/page1.png" alt="Discover African Music">
+                    <img src="Assets/Images/page1.png" alt="Discover African Music" onerror="this.style.display='none'">
                     <div class="image-shadow"></div>
                 </div>
             </div>
@@ -562,7 +562,7 @@
             </div>
             <div class="image-side">
                 <div class="image-container">
-                    <img src="Assets/Images/page2.png" alt="Explore Music">
+                    <img src="Assets/Images/page2.png" alt="Explore Music" onerror="this.style.display='none'">
                     <div class="image-shadow"></div>
                 </div>
             </div>
@@ -684,7 +684,7 @@
             </div>
             <div class="image-side">
                 <div class="image-container">
-                    <img src="Assets/Images/page3.png" alt="Music Player">
+                    <img src="Assets/Images/page3.png" alt="Music Player" onerror="this.style.display='none'">
                     <div class="image-shadow"></div>
                 </div>
             </div>
@@ -713,213 +713,160 @@
     </script>
 
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
+        import { database, saveToFirebase } from './js/firebase-config.js';
 
-        let database = null;
+        const container = document.getElementById('pageContainer');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const edgeShadowLeft = document.getElementById('edgeShadowLeft');
+        const edgeShadowRight = document.getElementById('edgeShadowRight');
+        let currentPage = 0;
+        const totalPages = 3;
 
-        async function initFirebase() {
-            try {
-                const response = await fetch('/api/firebase-config');
-                if (!response.ok) throw new Error('Config fetch failed');
-                const config = await response.json();
-                const app = initializeApp(config);
-                database = getDatabase(app);
-            } catch (error) {
-                console.error('Firebase init error:', error.message);
-                database = null;
-            }
-        }
-
-        function saveToFirebase(data) {
-            if (!database) {
-                alert('Service temporarily unavailable. Please try again later.');
-                return Promise.reject(new Error('Database not initialized'));
-            }
-            return push(ref(database, 'waitlist'), data);
-        }
-
-        function setupNavigation() {
-            const container = document.getElementById('pageContainer');
-            const indicators = document.querySelectorAll('.indicator');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const edgeShadowLeft = document.getElementById('edgeShadowLeft');
-            const edgeShadowRight = document.getElementById('edgeShadowRight');
-            let currentPage = 0;
-            const totalPages = 3;
-
-            function updateHeaderLinks(index) {
-                document.querySelectorAll('.header-link').forEach(link => {
-                    const linkPage = parseInt(link.getAttribute('data-page'));
-                    link.classList.toggle('hidden', linkPage === index);
-                });
-            }
-
-            function updateUI(index) {
-                container.style.transform = `translateX(-${index * 100}vw)`;
-
-                indicators.forEach(ind => ind.classList.remove('active'));
-                const activeIndicator = document.querySelector(`.indicator[data-index="${index}"]`);
-                if (activeIndicator) activeIndicator.classList.add('active');
-
-                prevBtn.style.opacity = index === 0 ? '0.15' : '1';
-                prevBtn.style.pointerEvents = index === 0 ? 'none' : 'auto';
-                nextBtn.style.opacity = index === totalPages - 1 ? '0.15' : '1';
-                nextBtn.style.pointerEvents = index === totalPages - 1 ? 'none' : 'auto';
-
-                updateHeaderLinks(index);
-            }
-
-            function navigateTo(index) {
-                if (index >= 0 && index < totalPages && index !== currentPage) {
-                    currentPage = index;
-                    updateUI(currentPage);
-                }
-            }
-
+        function updateHeaderLinks(index) {
             document.querySelectorAll('.header-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    navigateTo(parseInt(this.getAttribute('data-page')));
-                });
+                const linkPage = parseInt(link.getAttribute('data-page'));
+                link.classList.toggle('hidden', linkPage === index);
             });
-
-            indicators.forEach(indicator => {
-                indicator.addEventListener('click', function() {
-                    navigateTo(parseInt(this.getAttribute('data-index')));
-                });
-            });
-
-            prevBtn.addEventListener('click', () => navigateTo(currentPage - 1));
-            nextBtn.addEventListener('click', () => navigateTo(currentPage + 1));
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'ArrowLeft') navigateTo(currentPage - 1);
-                if (e.key === 'ArrowRight') navigateTo(currentPage + 1);
-            });
-
-            document.addEventListener('mousemove', function(e) {
-                const threshold = 120;
-                edgeShadowLeft.classList.toggle('visible', e.clientX < threshold);
-                edgeShadowRight.classList.toggle('visible', e.clientX > window.innerWidth - threshold);
-            });
-
-            updateUI(0);
         }
 
-        function setupForms() {
-            const joinElements = {
-                icon: document.getElementById('joinIcon'),
-                title: document.getElementById('joinTitle'),
-                subtitle: document.getElementById('joinSubtitle'),
-                description: document.getElementById('joinDescription'),
-                options: document.getElementById('waitlistOptions')
+        function updateUI(index) {
+            container.style.transform = `translateX(-${index * 100}vw)`;
+            indicators.forEach(ind => ind.classList.remove('active'));
+            const activeIndicator = document.querySelector(`.indicator[data-index="${index}"]`);
+            if (activeIndicator) activeIndicator.classList.add('active');
+            prevBtn.style.opacity = index === 0 ? '0.15' : '1';
+            prevBtn.style.pointerEvents = index === 0 ? 'none' : 'auto';
+            nextBtn.style.opacity = index === totalPages - 1 ? '0.15' : '1';
+            nextBtn.style.pointerEvents = index === totalPages - 1 ? 'none' : 'auto';
+            updateHeaderLinks(index);
+        }
+
+        function navigateTo(index) {
+            if (index >= 0 && index < totalPages && index !== currentPage) {
+                currentPage = index;
+                updateUI(currentPage);
+            }
+        }
+
+        document.querySelectorAll('.header-link').forEach(link => {
+            link.addEventListener('click', function() {
+                navigateTo(parseInt(this.getAttribute('data-page')));
+            });
+        });
+
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', function() {
+                navigateTo(parseInt(this.getAttribute('data-index')));
+            });
+        });
+
+        prevBtn.addEventListener('click', () => navigateTo(currentPage - 1));
+        nextBtn.addEventListener('click', () => navigateTo(currentPage + 1));
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') navigateTo(currentPage - 1);
+            if (e.key === 'ArrowRight') navigateTo(currentPage + 1);
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            const threshold = 120;
+            edgeShadowLeft.classList.toggle('visible', e.clientX < threshold);
+            edgeShadowRight.classList.toggle('visible', e.clientX > window.innerWidth - threshold);
+        });
+
+        function hideJoinContent() {
+            document.getElementById('joinIcon').style.display = 'none';
+            document.getElementById('joinTitle').style.display = 'none';
+            document.getElementById('joinSubtitle').style.display = 'none';
+            document.getElementById('joinDescription').style.display = 'none';
+            document.getElementById('waitlistOptions').style.display = 'none';
+        }
+
+        function showJoinContent() {
+            document.getElementById('joinIcon').style.display = 'block';
+            document.getElementById('joinTitle').style.display = 'block';
+            document.getElementById('joinSubtitle').style.display = 'block';
+            document.getElementById('joinDescription').style.display = 'block';
+            document.getElementById('waitlistOptions').style.display = 'flex';
+        }
+
+        document.getElementById('listenerBtn').addEventListener('click', function() {
+            hideJoinContent();
+            document.getElementById('listenerForm').classList.add('active');
+        });
+
+        document.getElementById('artistBtn').addEventListener('click', function() {
+            hideJoinContent();
+            document.getElementById('artistForm').classList.add('active');
+        });
+
+        document.getElementById('backFromListener').addEventListener('click', function() {
+            document.getElementById('listenerForm').classList.remove('active');
+            document.getElementById('listenerFormElement').reset();
+            showJoinContent();
+        });
+
+        document.getElementById('backFromArtist').addEventListener('click', function() {
+            document.getElementById('artistForm').classList.remove('active');
+            document.getElementById('artistFormElement').reset();
+            showJoinContent();
+        });
+
+        document.getElementById('listenerCountry').addEventListener('change', function() {
+            document.getElementById('listenerCustomCountry').style.display = this.value === 'Custom' ? 'block' : 'none';
+        });
+
+        document.getElementById('artistCountry').addEventListener('change', function() {
+            document.getElementById('artistCustomCountry').style.display = this.value === 'Custom' ? 'block' : 'none';
+        });
+
+        document.getElementById('listenerFormElement').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = {
+                type: 'listener',
+                name: formData.get('name'),
+                gender: formData.get('gender'),
+                age: formData.get('age'),
+                country: formData.get('country') === 'Custom' ? formData.get('customCountry') : formData.get('country'),
+                phone: formData.get('phone'),
+                timestamp: new Date().toISOString()
             };
-
-            function hideJoinContent() {
-                joinElements.icon.style.display = 'none';
-                joinElements.title.style.display = 'none';
-                joinElements.subtitle.style.display = 'none';
-                joinElements.description.style.display = 'none';
-                joinElements.options.style.display = 'none';
-            }
-
-            function showJoinContent() {
-                joinElements.icon.style.display = 'block';
-                joinElements.title.style.display = 'block';
-                joinElements.subtitle.style.display = 'block';
-                joinElements.description.style.display = 'block';
-                joinElements.options.style.display = 'flex';
-            }
-
-            document.getElementById('listenerBtn').addEventListener('click', function() {
-                hideJoinContent();
-                document.getElementById('listenerForm').classList.add('active');
-            });
-
-            document.getElementById('artistBtn').addEventListener('click', function() {
-                hideJoinContent();
-                document.getElementById('artistForm').classList.add('active');
-            });
-
-            document.getElementById('backFromListener').addEventListener('click', function() {
+            try {
+                await saveToFirebase(data);
+                alert('Successfully joined the waitlist!');
+                this.reset();
                 document.getElementById('listenerForm').classList.remove('active');
-                document.getElementById('listenerFormElement').reset();
                 showJoinContent();
-            });
+            } catch (error) {}
+        });
 
-            document.getElementById('backFromArtist').addEventListener('click', function() {
+        document.getElementById('artistFormElement').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = {
+                type: 'artist',
+                name: formData.get('name'),
+                gender: formData.get('gender'),
+                age: formData.get('age'),
+                socialLink: formData.get('socialLink'),
+                country: formData.get('country') === 'Custom' ? formData.get('customCountry') : formData.get('country'),
+                phone: formData.get('phone'),
+                timestamp: new Date().toISOString()
+            };
+            try {
+                await saveToFirebase(data);
+                alert('Successfully joined as an artist!');
+                this.reset();
                 document.getElementById('artistForm').classList.remove('active');
-                document.getElementById('artistFormElement').reset();
                 showJoinContent();
-            });
+            } catch (error) {}
+        });
 
-            document.getElementById('listenerCountry').addEventListener('change', function() {
-                document.getElementById('listenerCustomCountry').style.display = this.value === 'Custom' ? 'block' : 'none';
-            });
-
-            document.getElementById('artistCountry').addEventListener('change', function() {
-                document.getElementById('artistCustomCountry').style.display = this.value === 'Custom' ? 'block' : 'none';
-            });
-
-            document.getElementById('listenerFormElement').addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const formData = new FormData(this);
-                const data = {
-                    type: 'listener',
-                    name: formData.get('name'),
-                    gender: formData.get('gender'),
-                    age: formData.get('age'),
-                    country: formData.get('country') === 'Custom' ? formData.get('customCountry') : formData.get('country'),
-                    phone: formData.get('phone'),
-                    timestamp: new Date().toISOString()
-                };
-
-                try {
-                    await saveToFirebase(data);
-                    alert('Successfully joined the waitlist!');
-                    this.reset();
-                    document.getElementById('listenerForm').classList.remove('active');
-                    showJoinContent();
-                } catch (error) {
-                    if (error.message !== 'Database not initialized') {
-                        alert('Error: ' + error.message);
-                    }
-                }
-            });
-
-            document.getElementById('artistFormElement').addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const formData = new FormData(this);
-                const data = {
-                    type: 'artist',
-                    name: formData.get('name'),
-                    gender: formData.get('gender'),
-                    age: formData.get('age'),
-                    socialLink: formData.get('socialLink'),
-                    country: formData.get('country') === 'Custom' ? formData.get('customCountry') : formData.get('country'),
-                    phone: formData.get('phone'),
-                    timestamp: new Date().toISOString()
-                };
-
-                try {
-                    await saveToFirebase(data);
-                    alert('Successfully joined as an artist!');
-                    this.reset();
-                    document.getElementById('artistForm').classList.remove('active');
-                    showJoinContent();
-                } catch (error) {
-                    if (error.message !== 'Database not initialized') {
-                        alert('Error: ' + error.message);
-                    }
-                }
-            });
-        }
-
-        await initFirebase();
-        setupNavigation();
-        setupForms();
         lucide.createIcons();
+        updateUI(0);
     </script>
 </body>
 </html>
