@@ -29,15 +29,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <style>
+        /* Prevent flash on mobile */
+        body{display:none}
+        /* Splash screen */
+        .splash{position:fixed;top:0;left:0;width:100vw;height:100vh;background:#0B0F19;z-index:10000;display:flex;align-items:center;justify-content:center;transition:opacity .5s}
+        .splash.hide{opacity:0;pointer-events:none}
+        .splash-content{text-align:center}
+        .splash img{height:120px;animation:splashPulse 1.5s infinite}
+        @keyframes splashPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+        .splash-loader{width:60px;height:4px;background:rgba(255,255,255,.1);border-radius:2px;margin:1.5rem auto 0;overflow:hidden}
+        .splash-loader span{display:block;height:100%;width:0;background:#7C3AED;animation:loaderBar 4s ease-in-out forwards}
+        @keyframes loaderBar{0%{width:0}80%{width:95%}100%{width:100%}}
+        /* Main styles */
         *{margin:0;padding:0;box-sizing:border-box}
+        body.loaded{display:block}
         body{background:#000;overflow-x:hidden;width:100vw}
         .main-wrapper{display:flex;width:300vw;transition:transform .4s cubic-bezier(.4,0,.2,1);min-height:100vh}
         .p{flex:0 0 100vw;position:relative}
         .p1{background:#7c3aed;overflow-y:auto;height:100vh}
-        .p2{background:#14b8a6;overflow-y:auto;height:100vh}
+        .p2{background:#14b8a6;overflow-y:auto;height:100vh;display:flex;align-items:center}
         .p3{background:#000;height:100vh;display:flex;align-items:center;overflow-y:auto}
-        .l{position:fixed;top:2rem;left:4rem;z-index:200}.l img{height:70px;width:auto}
-        .hn{position:fixed;top:2.5rem;right:4rem;z-index:200;display:flex;gap:2rem}
+        .l{position:fixed;top:2.5rem;left:4rem;z-index:200}.l img{height:100px;width:auto}
+        .hn{position:fixed;top:3rem;right:4rem;z-index:200;display:flex;gap:2.5rem}
         .hl{font-family:'Inter',sans-serif;font-weight:500;font-size:.85rem;color:#F8FAFC;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:opacity .3s ease}.hl:hover{opacity:.7}.hl.h{opacity:.3;pointer-events:none}
         .sec{padding:5rem 4rem;color:#F8FAFC;position:relative}
         .sec h2{font-family:'Poppins',sans-serif;font-weight:700;font-size:2.6rem;margin-bottom:1rem;letter-spacing:-1px;line-height:1.2}
@@ -54,7 +67,6 @@
         .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
         .btn{font-family:'Inter',sans-serif;font-weight:500;font-size:.9rem;padding:.9rem 2rem;border:2px solid #F8FAFC;background:0 0;color:#F8FAFC;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:all .3s ease}.btn:hover{background:#F8FAFC;color:#000}
         .btn.gold{border-color:#F5B301;color:#F5B301}.btn.gold:hover{background:#F5B301;color:#000}
-        .btn.purple{background:#7C3AED;border-color:#7C3AED;color:#F8FAFC}.btn.purple:hover{background:#6d28d9;border-color:#6d28d9}
         .counter-row{display:flex;gap:3rem;margin-top:2rem;flex-wrap:wrap;justify-content:center}
         .counter-item{text-align:center}.counter-item .num{font-family:'Poppins',sans-serif;font-weight:700;font-size:2.5rem;color:#F5B301}.counter-item .lbl{font-family:'Inter',sans-serif;font-size:.8rem;opacity:.7;text-transform:uppercase;letter-spacing:1px}
         .card-row{display:flex;gap:1.5rem;margin-top:2rem;flex-wrap:wrap}
@@ -73,6 +85,21 @@
         .map-card .fi{font-size:4rem;margin-bottom:1rem;display:block;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.3)}
         .map-card .country{font-family:'Poppins',sans-serif;font-weight:600;font-size:1.1rem;margin-top:.5rem}
         .map-card .genre{font-family:'Inter',sans-serif;font-size:.75rem;opacity:.7;margin-top:.3rem}
+        .image-side{width:45%;height:100%;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .image-container{width:100%;height:100%;position:relative}
+        .image-container img{width:100%;height:100%;object-fit:cover}
+        .image-shadow{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+        .page2-layout{display:flex;width:100%;height:100%}
+        .page2-content{flex:1;padding:4rem 4rem 4rem 6rem}
+        .page3-layout{display:flex;width:100%;height:100%}
+        .page3-content{flex:1;padding:4rem 6rem 4rem 4rem}
+        .comparison-section{margin-top:2rem}
+        .comp-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-family:'Inter',sans-serif;font-size:.8rem;border:1px solid rgba(255,255,255,.2)}
+        .comp-table th,.comp-table td{padding:.8rem;text-align:left;border:1px solid rgba(255,255,255,.15)}
+        .comp-table th{font-weight:600;text-transform:uppercase;letter-spacing:1px;font-size:.7rem;opacity:.9;background:rgba(255,255,255,.05)}
+        .comp-table .check-y{color:#14b8a6;font-weight:700}
+        .comp-table .check-n{color:rgba(255,255,255,.3)}
+        .comp-table .highlight{background:rgba(124,58,237,.1)}
         .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);z-index:999;align-items:center;justify-content:center}
         .modal-overlay.ac{display:flex}
         .modal-box{background:#121826;border:1px solid rgba(255,255,255,.15);padding:2.5rem;text-align:center;max-width:420px;width:90%;color:#F8FAFC;position:relative}
@@ -81,33 +108,35 @@
         .modal-box .platforms{display:flex;gap:1rem;justify-content:center;margin-top:1.5rem}
         .modal-box .plat-btn{font-family:'Inter',sans-serif;font-size:.8rem;padding:.6rem 1.2rem;border:1px solid rgba(255,255,255,.3);background:0 0;color:#F8FAFC;cursor:pointer;transition:all .3s ease;text-decoration:none}.modal-box .plat-btn:hover{background:#7C3AED;border-color:#7C3AED}
         .modal-close{position:absolute;top:1rem;right:1rem;background:0 0;border:0;color:#F8FAFC;cursor:pointer;font-size:1.5rem}
-        .comparison-section{margin-top:3rem}
-        .comp-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-family:'Inter',sans-serif;font-size:.8rem}
-        .comp-table th,.comp-table td{padding:.8rem;text-align:left;border-bottom:1px solid rgba(255,255,255,.1)}
-        .comp-table th{font-weight:600;text-transform:uppercase;letter-spacing:1px;font-size:.7rem;opacity:.7}
-        .comp-table .check-y{color:#14b8a6;font-weight:700}.comp-table .check-n{color:rgba(255,255,255,.3)}
-        .comp-table .highlight{background:rgba(124,58,237,.15)}
         .notif-box{position:fixed;top:2rem;right:2rem;z-index:9999;display:flex;flex-direction:column;gap:.5rem;pointer-events:none}
         .notif-item{background:#121826;border:1px solid rgba(255,255,255,.15);padding:1rem 1.5rem;color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;display:flex;align-items:center;gap:.8rem;pointer-events:auto;animation:slideIn .4s ease-out;box-shadow:0 8px 24px rgba(0,0,0,.5)}.notif-item.success{border-left:3px solid #14b8a6}.notif-item.error{border-left:3px solid #ef4444}
         @keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
         .notif-item .close-notif{background:0 0;border:0;color:rgba(255,255,255,.5);cursor:pointer;font-size:1rem;margin-left:auto}
-        .site-footer{background:#000;text-align:center;padding:2.5rem;font-family:'Inter',sans-serif;font-size:.75rem;color:rgba(248,250,252,.5);border-top:1px solid rgba(255,255,255,.06);width:100%}
-        .site-footer a{color:#7C3AED;text-decoration:none}
-        .site-footer .ft-grid{display:flex;gap:3rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.5rem}
+        .site-footer{background:#000;padding:2.5rem 4rem;font-family:'Inter',sans-serif;font-size:.75rem;color:rgba(248,250,252,.5);border-top:1px solid rgba(255,255,255,.06);display:flex;flex-wrap:wrap;align-items:flex-start;gap:3rem}
+        .site-footer .ft-logo img{height:80px;width:auto}
+        .site-footer .ft-grid{display:flex;gap:3rem;flex-wrap:wrap;flex:1;justify-content:flex-end}
         .site-footer .ft-col{text-align:left}
         .site-footer .ft-col h5{font-family:'Poppins',sans-serif;font-size:.8rem;margin-bottom:.6rem;color:#F8FAFC}
-        .site-footer .ft-col a{display:block;font-size:.7rem;margin-bottom:.3rem;opacity:.6;transition:opacity .3s ease}
+        .site-footer .ft-col a{display:block;font-size:.7rem;margin-bottom:.3rem;opacity:.6;transition:opacity .3s ease;text-decoration:none;color:inherit}
         .site-footer .ft-col a:hover{opacity:1}
+        .site-footer .ft-bottom{width:100%;text-align:center;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06)}
         .nv{position:fixed;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 1.5rem;z-index:200;pointer-events:none}
         .na{font-size:5rem;color:#F8FAFC;cursor:pointer;pointer-events:auto;opacity:.6;text-shadow:0 0 30px rgba(0,0,0,.5);line-height:1;font-weight:300;user-select:none;transition:all .3s ease}.na:hover{opacity:1;transform:scale(1.2)}
         .ni{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:.6rem;z-index:200}
         .ind{width:28px;height:3px;border-radius:2px;background:rgba(248,250,252,.25);transition:all .3s ease;cursor:pointer}.ind.ac{background:#7C3AED;width:40px;box-shadow:0 0 10px rgba(124,58,237,.5)}
         .il{position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none}.il a{color:transparent;font-size:1px}
-        @media(max-width:768px){body{overflow:auto}.main-wrapper,.nv,.ni{display:none}.l{position:static;padding:1rem}.l img{height:45px}.hn{position:static;padding:0 1rem 1rem}.hero h1{font-size:2.5rem}.sec{padding:3rem 1.5rem}.sec h2{font-size:2rem}.card-row{flex-direction:column}}
+        @media(max-width:768px){body{display:none}}
     </style>
 </head>
 <body>
-    <div class="il" aria-hidden="true"><a href="/">Home</a><a href="/music">Music</a><a href="/join">Join</a><a href="/about">About</a><a href="/artists">Artists</a><a href="/listeners">Listeners</a><a href="/contact">Contact</a></div>
+    <!-- Splash screen -->
+    <div class="splash" id="splashScreen"><div class="splash-content"><img src="Assets/Images/logo.png" alt="Djembay"><div class="splash-loader"><span></span></div></div></div>
+    <script>
+        // Show body only if large screen, otherwise redirect
+        if(window.innerWidth<=768){window.location.href='index2.html'}else{document.body.classList.add('loaded')}
+    </script>
+
+    <div class="il" aria-hidden="true"><a href="/">Home</a><a href="/music">Music</a><a href="/join">Join</a><a href="/about">About</a><a href="/careers">Careers</a><a href="/press">Press</a></div>
     <div class="l"><img src="Assets/Images/logo.png" alt="Djembay Logo"></div>
     <div class="hn"><span class="hl h" data-page="0">Home</span><span class="hl" data-page="1">Music</span><span class="hl" data-page="2">Join</span></div>
     <div class="notif-box" id="notifBox"></div>
@@ -136,19 +165,47 @@
             <section class="sec"><h2>Explore Africa Through Music</h2><div class="map-grid"><div class="map-card"><span class="fi fi-rw"></span><div class="country">Rwanda</div><div class="genre">Afro-fusion · R&B</div></div><div class="map-card"><span class="fi fi-ng"></span><div class="country">Nigeria</div><div class="genre">Afrobeats · Highlife</div></div><div class="map-card"><span class="fi fi-ke"></span><div class="country">Kenya</div><div class="genre">Genge · Bongo Flava</div></div><div class="map-card"><span class="fi fi-gh"></span><div class="country">Ghana</div><div class="genre">Highlife · Afro-dance</div></div><div class="map-card"><span class="fi fi-za"></span><div class="country">South Africa</div><div class="genre">Amapiano · Afro-house</div></div></div></section>
             <section class="sec"><h2>Become a Founding Member</h2><div class="card-row"><div class="card"><h4>Founding Listener</h4><p>Early access, exclusive playlists, and a founder badge that shows you were here from the start.</p></div><div class="card"><h4>Founding Artist</h4><p>Verified founder profile, priority onboarding, and early promotion opportunities across the platform.</p></div><div class="card"><h4>Founding Partner</h4><p>Shape the future roadmap and get direct feedback access to the Djembay team.</p></div></div></section>
             <section class="sec"><h2>We're Building The Future Of African Music</h2><p class="desc">Djembay is looking for passionate builders, artists, designers, developers, marketers, and supporters who believe in the future of African music.</p><div class="hero-btns" style="justify-content:flex-start;margin-top:1.5rem"><button class="btn gold modal-trigger">Become a Partner</button><button class="btn modal-trigger">Join the Team</button><button class="btn modal-trigger">Contact Us</button></div></section>
-            <!-- Footer placed inside page 1 as last section so it scrolls naturally -->
-            <footer class="site-footer"><div class="ft-grid"><div class="ft-col"><h5>Djembay</h5><a href="#">About</a><a href="#">Careers</a><a href="#">Press</a></div><div class="ft-col"><h5>Platform</h5><a href="#">For Artists</a><a href="#">For Listeners</a><a href="#">Pricing</a></div><div class="ft-col"><h5>Support</h5><a href="#">Help Center</a><a href="#">Contact</a><a href="#">Privacy Policy</a></div><div class="ft-col"><h5>Connect</h5><a href="#">Twitter</a><a href="#">Instagram</a><a href="#">LinkedIn</a></div></div><p>&copy; 2026 Djembay. Built for Africa. Created by <a href="https://pireactive.vercel.app/" target="_blank" rel="noopener">PIReactive</a></p></footer>
+            <footer class="site-footer">
+                <div class="ft-logo"><img src="Assets/Images/logo.png" alt="Djembay"></div>
+                <div class="ft-grid">
+                    <div class="ft-col"><h5>Djembay</h5><a href="/about">About</a><a href="/careers">Careers</a><a href="/press">Press</a></div>
+                    <div class="ft-col"><h5>Platform</h5><a href="/artists">For Artists</a><a href="/listeners">For Listeners</a><a href="/pricing">Pricing</a></div>
+                    <div class="ft-col"><h5>Support</h5><a href="/help">Help Center</a><a href="/contact">Contact</a><a href="/privacy">Privacy Policy</a></div>
+                    <div class="ft-col"><h5>Connect</h5><a href="https://twitter.com" target="_blank">Twitter</a><a href="https://instagram.com" target="_blank">Instagram</a><a href="https://linkedin.com" target="_blank">LinkedIn</a></div>
+                </div>
+                <div class="ft-bottom"><p>&copy; 2026 Djembay. Built for Africa. Created by <a href="https://pireactive.vercel.app/" target="_blank" rel="noopener">PIReactive</a></p></div>
+            </footer>
         </div>
         <!-- PAGE 2 - MUSIC / COMPARISON -->
         <div class="p p2">
-            <div class="sec"><h2>Built for Artists & Listeners</h2><p class="desc" style="font-family:'Montserrat',sans-serif;font-style:italic">More than streaming — a fair ecosystem for everyone</p><p class="desc"><strong>For Artists:</strong> Keep up to 80% of your royalties. Upload your music, build your audience, and track your growth with real-time analytics.</p><p class="desc"><strong>For Listeners:</strong> Discover curated African playlists, download songs to your device for true offline listening, and enjoy high-quality audio optimized for low data environments.</p></div>
-            <div class="sec comparison-section"><h2>How Djembay Compares</h2><p class="desc">See why Djembay is different from other streaming platforms.</p><table class="comp-table"><thead><tr><th>Feature</th><th>Djembay</th><th>Spotify</th><th>Apple Music</th><th>Boomplay</th></tr></thead><tbody><tr class="highlight"><td>Focused on Africa</td><td class="check-y">✓</td><td class="check-n">✗</td><td class="check-n">✗</td><td class="check-y">✓</td></tr><tr><td>Artist Royalties</td><td class="check-y">Up to 80%</td><td class="check-n">~15-30%</td><td class="check-n">~20%</td><td class="check-n">~30%</td></tr><tr class="highlight"><td>Device File Downloads</td><td class="check-y">✓</td><td class="check-n">✗</td><td class="check-n">✗</td><td class="check-n">✗</td></tr><tr><td>Offline Mode</td><td class="check-y">Optimized</td><td class="check-y">✓</td><td class="check-y">✓</td><td class="check-y">✓</td></tr><tr class="highlight"><td>Data Saver Mode</td><td class="check-y">Ultra-low</td><td class="check-y">✓</td><td class="check-n">✗</td><td class="check-y">✓</td></tr><tr><td>African Content Priority</td><td class="check-y">Curated</td><td class="check-n">Limited</td><td class="check-n">Limited</td><td class="check-y">✓</td></tr><tr class="highlight"><td>Artist Analytics</td><td class="check-y">Real-time</td><td class="check-y">✓</td><td class="check-y">✓</td><td class="check-n">Basic</td></tr><tr><td>Low Data Streaming</td><td class="check-y">64kbps mode</td><td class="check-n">24kbps only</td><td class="check-n">✗</td><td class="check-n">✗</td></tr></tbody></table></div>
-            <!-- Minimal footer for page 2 -->
-            <footer class="site-footer" style="margin-top:2rem"><p>&copy; 2026 Djembay. <a href="https://pireactive.vercel.app/" target="_blank" rel="noopener">PIReactive</a></p></footer>
+            <div class="page2-layout">
+                <div class="page2-content">
+                    <div class="sec" style="padding:0"><h2>Built for Artists & Listeners</h2><p class="desc" style="font-family:'Montserrat',sans-serif;font-style:italic">More than streaming — a fair ecosystem for everyone</p><p class="desc"><strong>For Artists:</strong> Keep up to 80% of your royalties. Upload your music, build your audience, and track your growth with real-time analytics.</p><p class="desc"><strong>For Listeners:</strong> Discover curated African playlists, download songs to your device for true offline listening, and enjoy high-quality audio optimized for low data environments.</p></div>
+                    <div class="comparison-section"><h2>How Djembay Compares</h2><p class="desc">See why Djembay is different from other streaming platforms.</p><table class="comp-table"><thead><tr><th>Feature</th><th>Djembay</th><th>Spotify</th><th>Apple Music</th><th>Boomplay</th></tr></thead><tbody><tr class="highlight"><td>Focused on Africa</td><td class="check-y">✓</td><td class="check-n">✗</td><td class="check-n">✗</td><td class="check-y">✓</td></tr><tr><td>Artist Royalties</td><td class="check-y">Up to 80%</td><td class="check-n">~15-30%</td><td class="check-n">~20%</td><td class="check-n">~30%</td></tr><tr class="highlight"><td>Device File Downloads</td><td class="check-y">✓</td><td class="check-n">✗</td><td class="check-n">✗</td><td class="check-n">✗</td></tr><tr><td>Offline Mode</td><td class="check-y">Optimized</td><td class="check-y">✓</td><td class="check-y">✓</td><td class="check-y">✓</td></tr><tr class="highlight"><td>Data Saver Mode</td><td class="check-y">Ultra-low</td><td class="check-y">✓</td><td class="check-n">✗</td><td class="check-y">✓</td></tr><tr><td>African Content Priority</td><td class="check-y">Curated</td><td class="check-n">Limited</td><td class="check-n">Limited</td><td class="check-y">✓</td></tr><tr class="highlight"><td>Artist Analytics</td><td class="check-y">Real-time</td><td class="check-y">✓</td><td class="check-y">✓</td><td class="check-n">Basic</td></tr><tr><td>Low Data Streaming</td><td class="check-y">64kbps mode</td><td class="check-n">24kbps only</td><td class="check-n">✗</td><td class="check-n">✗</td></tr></tbody></table></div>
+                </div>
+                <div class="image-side">
+                    <div class="image-container">
+                        <img src="Assets/Images/page2.png" alt="Djembay features">
+                        <div class="image-shadow" style="background:linear-gradient(to right,#14b8a6 0,#14b8a6 15%,rgba(20,184,166,.95) 30%,rgba(20,184,166,.85) 45%,rgba(20,184,166,.65) 60%,rgba(20,184,166,.35) 75%,rgba(20,184,166,.1) 90%,rgba(20,184,166,0) 100%)"></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- PAGE 3 - JOIN WAITLIST -->
         <div class="p p3">
-            <div class="sec" style="width:100%" id="jC"><div id="jDC"><h2 id="jT">Join the Djembay Waitlist</h2><p class="desc" id="jS" style="font-family:'Montserrat',sans-serif;font-style:italic">Be the first to experience African music streaming redefined</p><p class="desc" id="jD">Launching soon with limited spots. Whether you're an artist ready to share your sound or a listener hungry for the best African music — sign up now for early access.</p><div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap" id="wO"><button class="btn gold" id="lB">Join as Listener</button><button class="btn" id="aB" style="border-color:#F5B301;color:#F5B301">Join as Artist</button></div></div><div id="lF" style="display:none;margin-top:1.5rem"><span class="hl" id="bFL" style="cursor:pointer;margin-bottom:1rem;display:inline-block">← Back</span><form id="lFE"><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Name</label><input type="text" name="name" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Gender</label><select name="gender" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Age</label><input type="number" name="age" required min="13" style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Country</label><select name="country" id="lC" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"><option value="">Select Country</option><option value="Rwanda">Rwanda</option><option value="Uganda">Uganda</option><option value="Tanzania">Tanzania</option><option value="South Africa">South Africa</option><option value="Nigeria">Nigeria</option><option value="Custom">Custom</option></select></div><div style="margin-bottom:.8rem;display:none" id="lCC"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Your Country</label><input type="text" name="customCountry" style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Phone Number</label><input type="tel" name="phone" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><button type="submit" class="btn gold" id="lSB" style="width:100%;position:relative"><span class="bt">Join Waitlist</span><span class="sp" style="display:none;width:16px;height:16px;border:2px solid rgba(248,250,252,.3);border-top-color:#F8FAFC;border-radius:50%;animation:spin .6s linear infinite;margin-left:.5rem"></span></button></form></div><div id="aF" style="display:none;margin-top:1.5rem"><span class="hl" id="bFA" style="cursor:pointer;margin-bottom:1rem;display:inline-block">← Back</span><form id="aFE"><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Name</label><input type="text" name="name" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Gender</label><select name="gender" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Age</label><input type="number" name="age" required min="13" style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Social Link (Instagram)</label><input type="url" name="socialLink" required placeholder="https://instagram.com/..." style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Country</label><select name="country" id="aC" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"><option value="">Select Country</option><option value="Rwanda">Rwanda</option><option value="Uganda">Uganda</option><option value="Tanzania">Tanzania</option><option value="South Africa">South Africa</option><option value="Nigeria">Nigeria</option><option value="Custom">Custom</option></select></div><div style="margin-bottom:.8rem;display:none" id="aCC"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Your Country</label><input type="text" name="customCountry" style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Phone Number</label><input type="tel" name="phone" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><button type="submit" class="btn gold" id="aSB" style="width:100%;position:relative"><span class="bt">Join as Artist</span><span class="sp" style="display:none;width:16px;height:16px;border:2px solid rgba(248,250,252,.3);border-top-color:#F8FAFC;border-radius:50%;animation:spin .6s linear infinite;margin-left:.5rem"></span></button></form></div></div>
+            <div class="page3-layout">
+                <div class="page3-content" id="jC">
+                    <div id="jDC"><h2 id="jT">Join the Djembay Waitlist</h2><p class="desc" id="jS" style="font-family:'Montserrat',sans-serif;font-style:italic">Be the first to experience African music streaming redefined</p><p class="desc" id="jD">Launching soon with limited spots. Whether you're an artist ready to share your sound or a listener hungry for the best African music — sign up now for early access.</p><div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap" id="wO"><button class="btn gold" id="lB">Join as Listener</button><button class="btn" id="aB" style="border-color:#F5B301;color:#F5B301">Join as Artist</button></div></div>
+                    <div id="lF" style="display:none;margin-top:1.5rem"><span class="hl" id="bFL" style="cursor:pointer;margin-bottom:1rem;display:inline-block">← Back</span><form id="lFE"><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Name</label><input type="text" name="name" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Gender</label><select name="gender" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Age</label><input type="number" name="age" required min="13" style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Country</label><select name="country" id="lC" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"><option value="">Select Country</option><option value="Rwanda">Rwanda</option><option value="Uganda">Uganda</option><option value="Tanzania">Tanzania</option><option value="South Africa">South Africa</option><option value="Nigeria">Nigeria</option><option value="Custom">Custom</option></select></div><div style="margin-bottom:.8rem;display:none" id="lCC"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Your Country</label><input type="text" name="customCountry" style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Phone Number</label><input type="tel" name="phone" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><button type="submit" class="btn gold" id="lSB" style="width:100%;position:relative"><span class="bt">Join Waitlist</span><span class="sp" style="display:none;width:16px;height:16px;border:2px solid rgba(248,250,252,.3);border-top-color:#F8FAFC;border-radius:50%;animation:spin .6s linear infinite;margin-left:.5rem"></span></button></form></div>
+                    <div id="aF" style="display:none;margin-top:1.5rem"><span class="hl" id="bFA" style="cursor:pointer;margin-bottom:1rem;display:inline-block">← Back</span><form id="aFE"><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Name</label><input type="text" name="name" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Gender</label><select name="gender" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Age</label><input type="number" name="age" required min="13" style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Social Link (Instagram)</label><input type="url" name="socialLink" required placeholder="https://instagram.com/..." style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Country</label><select name="country" id="aC" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"><option value="">Select Country</option><option value="Rwanda">Rwanda</option><option value="Uganda">Uganda</option><option value="Tanzania">Tanzania</option><option value="South Africa">South Africa</option><option value="Nigeria">Nigeria</option><option value="Custom">Custom</option></select></div><div style="margin-bottom:.8rem;display:none" id="aCC"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Your Country</label><input type="text" name="customCountry" style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><div style="margin-bottom:.8rem"><label style="font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:.3rem">Phone Number</label><input type="tel" name="phone" required style="width:100%;padding:.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#F8FAFC;font-family:'Inter',sans-serif;font-size:.85rem;outline:0"></div><button type="submit" class="btn gold" id="aSB" style="width:100%;position:relative"><span class="bt">Join as Artist</span><span class="sp" style="display:none;width:16px;height:16px;border:2px solid rgba(248,250,252,.3);border-top-color:#F8FAFC;border-radius:50%;animation:spin .6s linear infinite;margin-left:.5rem"></span></button></form></div>
+                </div>
+                <div class="image-side">
+                    <div class="image-container">
+                        <img src="Assets/Images/page3.png" alt="Join Djembay">
+                        <div class="image-shadow" style="background:linear-gradient(to right,#000 0,#000 15%,rgba(0,0,0,.95) 30%,rgba(0,0,0,.85) 45%,rgba(0,0,0,.65) 60%,rgba(0,0,0,.35) 75%,rgba(0,0,0,.1) 90%,rgba(0,0,0,0) 100%)"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Modal -->
@@ -156,10 +213,12 @@
     <!-- Navigation arrows -->
     <div class="nv"><span class="na" id="pB" aria-label="Previous page">‹</span><span class="na" id="nB" aria-label="Next page">›</span></div>
     <div class="ni"><div class="ind ac" data-index="0"></div><div class="ind" data-index="1"></div><div class="ind" data-index="2"></div></div>
-    <!-- Mobile redirect -->
-    <script>if(window.innerWidth<=768){window.location.href='index2.html'}</script>
+
     <script type="module">
-        // ---------- ROBUST NAVIGATION (always works, independent of Firebase) ----------
+        // Splash screen auto-hide after 4 seconds
+        setTimeout(()=>{document.getElementById('splashScreen').classList.add('hide')},4000);
+
+        // Navigation (works regardless of Firebase)
         const wrapper = document.getElementById('pC');
         const indicators = document.querySelectorAll('.ind');
         const prevBtn = document.getElementById('pB');
@@ -167,201 +226,137 @@
         let currentPage = 0;
         const totalPages = 3;
 
-        function updateHeaderLinks(index) {
-            document.querySelectorAll('.hl').forEach(link => {
+        function updateHeaderLinks(index){
+            document.querySelectorAll('.hl').forEach(link=>{
                 const page = parseInt(link.getAttribute('data-page'));
-                link.classList.toggle('h', page === index);
+                link.classList.toggle('h', page===index);
             });
         }
 
-        function updateUI(index) {
-            wrapper.style.transform = `translateX(-${index * 100}vw)`;
-            indicators.forEach(ind => ind.classList.remove('ac'));
+        function updateUI(index){
+            wrapper.style.transform = `translateX(-${index*100}vw)`;
+            indicators.forEach(ind=>ind.classList.remove('ac'));
             const activeInd = document.querySelector(`.ind[data-index="${index}"]`);
-            if (activeInd) activeInd.classList.add('ac');
-
-            prevBtn.style.opacity = index === 0 ? '0.15' : '1';
-            prevBtn.style.pointerEvents = index === 0 ? 'none' : 'auto';
-            nextBtn.style.opacity = index === totalPages - 1 ? '0.15' : '1';
-            nextBtn.style.pointerEvents = index === totalPages - 1 ? 'none' : 'auto';
-
+            if(activeInd) activeInd.classList.add('ac');
+            prevBtn.style.opacity = index===0?'0.15':'1';
+            prevBtn.style.pointerEvents = index===0?'none':'auto';
+            nextBtn.style.opacity = index===totalPages-1?'0.15':'1';
+            nextBtn.style.pointerEvents = index===totalPages-1?'none':'auto';
             updateHeaderLinks(index);
         }
 
-        function navigateTo(index) {
-            if (index >= 0 && index < totalPages && index !== currentPage) {
+        function navigateTo(index){
+            if(index>=0 && index<totalPages && index!==currentPage){
                 currentPage = index;
                 updateUI(currentPage);
             }
         }
 
-        // Attach navigation listeners immediately
-        document.querySelectorAll('.hl').forEach(link => {
-            link.addEventListener('click', () => {
-                const page = parseInt(link.getAttribute('data-page'));
-                navigateTo(page);
-            });
-        });
+        document.querySelectorAll('.hl').forEach(link=>link.addEventListener('click',()=>navigateTo(parseInt(link.getAttribute('data-page')))));
+        indicators.forEach(ind=>ind.addEventListener('click',()=>navigateTo(parseInt(ind.getAttribute('data-index')))));
+        prevBtn.addEventListener('click',()=>navigateTo(currentPage-1));
+        nextBtn.addEventListener('click',()=>navigateTo(currentPage+1));
+        document.addEventListener('keydown',(e)=>{if(e.key==='ArrowLeft')navigateTo(currentPage-1);if(e.key==='ArrowRight')navigateTo(currentPage+1)});
+        document.getElementById('heroWaitlistBtn').addEventListener('click',()=>navigateTo(2));
+        document.getElementById('heroArtistsBtn').addEventListener('click',()=>navigateTo(2));
 
-        indicators.forEach(ind => {
-            ind.addEventListener('click', () => {
-                const page = parseInt(ind.getAttribute('data-index'));
-                navigateTo(page);
-            });
-        });
-
-        prevBtn.addEventListener('click', () => navigateTo(currentPage - 1));
-        nextBtn.addEventListener('click', () => navigateTo(currentPage + 1));
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') navigateTo(currentPage - 1);
-            if (e.key === 'ArrowRight') navigateTo(currentPage + 1);
-        });
-
-        // Hero buttons
-        document.getElementById('heroWaitlistBtn').addEventListener('click', () => navigateTo(2));
-        document.getElementById('heroArtistsBtn').addEventListener('click', () => navigateTo(2));
-
-        // Modal logic
+        // Modal
         const modalOverlay = document.getElementById('modalOverlay');
-        document.querySelectorAll('.modal-trigger').forEach(btn => {
-            btn.addEventListener('click', () => modalOverlay.classList.add('ac'));
-        });
-        document.getElementById('modalClose').addEventListener('click', () => modalOverlay.classList.remove('ac'));
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) modalOverlay.classList.remove('ac');
-        });
+        document.querySelectorAll('.modal-trigger').forEach(btn=>btn.addEventListener('click',()=>modalOverlay.classList.add('ac')));
+        document.getElementById('modalClose').addEventListener('click',()=>modalOverlay.classList.remove('ac'));
+        modalOverlay.addEventListener('click',(e)=>{if(e.target===modalOverlay)modalOverlay.classList.remove('ac')});
 
-        // Custom notification system (independent of Firebase)
-        function showNotification(message, type = 'success') {
-            const box = document.getElementById('notifBox');
-            const el = document.createElement('div');
-            el.className = `notif-item ${type}`;
-            el.innerHTML = `${message}<button class="close-notif">×</button>`;
+        // Custom notification
+        function showNotification(message,type='success'){
+            const box=document.getElementById('notifBox');
+            const el=document.createElement('div');
+            el.className=`notif-item ${type}`;
+            el.innerHTML=`${message}<button class="close-notif">×</button>`;
             box.appendChild(el);
-            el.querySelector('.close-notif').addEventListener('click', () => el.remove());
-            setTimeout(() => { if (el.parentNode) el.remove(); }, 4000);
+            el.querySelector('.close-notif').addEventListener('click',()=>el.remove());
+            setTimeout(()=>{if(el.parentNode)el.remove()},4000);
         }
 
-        // ---------- FIREBASE INTEGRATION (graceful fallback) ----------
-        let saveToFirebase = null;
-        try {
+        // Firebase integration with fallback
+        let saveToFirebase=null;
+        try{
             const firebaseModule = await import('./js/firebase-config.js');
             saveToFirebase = firebaseModule.saveToFirebase;
-        } catch (e) {
+        }catch(e){
             console.warn('Firebase not available – forms will simulate submission.');
-            // Provide a fallback that simulates success
-            saveToFirebase = (data) => {
-                console.log('Simulated save:', data);
-                return Promise.resolve();
-            };
+            saveToFirebase = (data)=>Promise.resolve();
         }
 
-        // ---------- WAITLIST FORM LOGIC ----------
-        function hideJoinDefault() {
-            ['jT','jS','jD'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.style.display = 'none';
-            });
-            document.getElementById('wO').style.display = 'none';
+        // Waitlist form logic
+        function hideJoinDefault(){
+            ['jT','jS','jD'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='none'});
+            document.getElementById('wO').style.display='none';
         }
-
-        function showJoinDefault() {
-            ['jT','jS','jD'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.style.display = 'block';
-            });
-            document.getElementById('wO').style.display = 'flex';
+        function showJoinDefault(){
+            ['jT','jS','jD'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='block'});
+            document.getElementById('wO').style.display='flex';
         }
-
-        function showThankYouAndReset(formId) {
-            const formContainer = document.getElementById(formId);
-            const form = formContainer.querySelector('form');
-            const backBtn = formContainer.querySelector('.hl');
-            form.style.display = 'none';
-            if (backBtn) backBtn.style.display = 'none';
-            showNotification('✓ Successfully submitted! We will be in touch.', 'success');
-            setTimeout(() => {
-                form.style.display = 'block';
-                if (backBtn) backBtn.style.display = 'inline-block';
+        function showThankYouAndReset(formId){
+            const formContainer=document.getElementById(formId);
+            const form=formContainer.querySelector('form');
+            const backBtn=formContainer.querySelector('.hl');
+            form.style.display='none';
+            if(backBtn)backBtn.style.display='none';
+            showNotification('✓ Successfully submitted! We will be in touch.','success');
+            setTimeout(()=>{
+                form.style.display='block';
+                if(backBtn)backBtn.style.display='inline-block';
                 form.reset();
-                formContainer.style.display = 'none';
+                formContainer.style.display='none';
                 showJoinDefault();
-            }, 3000);
+            },3000);
         }
 
-        async function handleSubmit(e, formId, submitBtnId) {
+        async function handleSubmit(e,formId,submitBtnId){
             e.preventDefault();
-            const submitBtn = document.getElementById(submitBtnId);
-            const form = e.target;
+            const submitBtn=document.getElementById(submitBtnId);
+            const form=e.target;
             submitBtn.classList.add('ld');
-            submitBtn.querySelector('.bt').style.opacity = '0.5';
-            submitBtn.querySelector('.sp').style.display = 'inline-block';
+            submitBtn.querySelector('.bt').style.opacity='0.5';
+            submitBtn.querySelector('.sp').style.display='inline-block';
 
-            const formData = new FormData(form);
-            const type = formId === 'lF' ? 'listener' : 'artist';
-            const data = {
+            const formData=new FormData(form);
+            const type=formId==='lF'?'listener':'artist';
+            const data={
                 type,
-                name: formData.get('name'),
-                gender: formData.get('gender'),
-                age: formData.get('age'),
-                country: formData.get('country') === 'Custom' ? formData.get('customCountry') : formData.get('country'),
-                phone: formData.get('phone'),
-                timestamp: new Date().toISOString()
+                name:formData.get('name'),
+                gender:formData.get('gender'),
+                age:formData.get('age'),
+                country:formData.get('country')==='Custom'?formData.get('customCountry'):formData.get('country'),
+                phone:formData.get('phone'),
+                timestamp:new Date().toISOString()
             };
-            if (type === 'artist') data.socialLink = formData.get('socialLink');
+            if(type==='artist') data.socialLink=formData.get('socialLink');
 
-            try {
+            try{
                 await saveToFirebase(data);
                 submitBtn.classList.remove('ld');
-                submitBtn.querySelector('.bt').style.opacity = '1';
-                submitBtn.querySelector('.sp').style.display = 'none';
+                submitBtn.querySelector('.bt').style.opacity='1';
+                submitBtn.querySelector('.sp').style.display='none';
                 showThankYouAndReset(formId);
-            } catch (error) {
+            }catch(error){
                 submitBtn.classList.remove('ld');
-                submitBtn.querySelector('.bt').style.opacity = '1';
-                submitBtn.querySelector('.sp').style.display = 'none';
-                showNotification('⚠ Network error. Please try again.', 'error');
+                submitBtn.querySelector('.bt').style.opacity='1';
+                submitBtn.querySelector('.sp').style.display='none';
+                showNotification('⚠ Network error. Please try again.','error');
             }
         }
 
-        // Listener / Artist buttons
-        document.getElementById('lB').addEventListener('click', () => {
-            hideJoinDefault();
-            document.getElementById('lF').style.display = 'block';
-        });
-        document.getElementById('aB').addEventListener('click', () => {
-            hideJoinDefault();
-            document.getElementById('aF').style.display = 'block';
-        });
+        document.getElementById('lB').addEventListener('click',()=>{hideJoinDefault();document.getElementById('lF').style.display='block'});
+        document.getElementById('aB').addEventListener('click',()=>{hideJoinDefault();document.getElementById('aF').style.display='block'});
+        document.getElementById('bFL').addEventListener('click',()=>{document.getElementById('lFE').reset();document.getElementById('lF').style.display='none';showJoinDefault()});
+        document.getElementById('bFA').addEventListener('click',()=>{document.getElementById('aFE').reset();document.getElementById('aF').style.display='none';showJoinDefault()});
+        document.getElementById('lC').addEventListener('change',function(){document.getElementById('lCC').style.display=this.value==='Custom'?'block':'none'});
+        document.getElementById('aC').addEventListener('change',function(){document.getElementById('aCC').style.display=this.value==='Custom'?'block':'none'});
+        document.getElementById('lFE').addEventListener('submit',(e)=>handleSubmit(e,'lF','lSB'));
+        document.getElementById('aFE').addEventListener('submit',(e)=>handleSubmit(e,'aF','aSB'));
 
-        // Back buttons
-        document.getElementById('bFL').addEventListener('click', () => {
-            document.getElementById('lFE').reset();
-            document.getElementById('lF').style.display = 'none';
-            showJoinDefault();
-        });
-        document.getElementById('bFA').addEventListener('click', () => {
-            document.getElementById('aFE').reset();
-            document.getElementById('aF').style.display = 'none';
-            showJoinDefault();
-        });
-
-        // Custom country toggles
-        document.getElementById('lC').addEventListener('change', function() {
-            document.getElementById('lCC').style.display = this.value === 'Custom' ? 'block' : 'none';
-        });
-        document.getElementById('aC').addEventListener('change', function() {
-            document.getElementById('aCC').style.display = this.value === 'Custom' ? 'block' : 'none';
-        });
-
-        // Form submissions
-        document.getElementById('lFE').addEventListener('submit', (e) => handleSubmit(e, 'lF', 'lSB'));
-        document.getElementById('aFE').addEventListener('submit', (e) => handleSubmit(e, 'aF', 'aSB'));
-
-        // Initialize Lucide icons
         lucide.createIcons();
-        // Set initial page
         updateUI(0);
     </script>
 </body>
